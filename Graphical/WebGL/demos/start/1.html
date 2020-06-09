@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			const canvas = document.createElement("canvas");
+			canvas.width = 300;
+			canvas.height = 300;
+			canvas.style.background = "#000";
+			document.body.appendChild(canvas);
+			const gl = canvas.getContext("webgl");
+			const program = gl.createProgram();
+			const vtxShader = gl.createShader(gl.VERTEX_SHADER);
+			const fgmShader = gl.createShader(gl.FRAGMENT_SHADER);
+			gl.shaderSource(
+				vtxShader,
+				`attribute vec2 a_Position;
+				void main(){
+					gl_Position = vec4(a_Position,0.,1.);
+				}`
+			);
+			gl.compileShader(vtxShader);
+			gl.attachShader(program, vtxShader);
+			gl.shaderSource(
+				fgmShader,
+				`void main(){
+					gl_FragColor = vec4(1.,0.,0.,1.);
+				}`
+			);
+			gl.compileShader(fgmShader);
+			gl.attachShader(program, fgmShader);
+			gl.linkProgram(program);
+			const aPositionIdx = gl.getAttribLocation(program, "a_Position");
+			const pointBuf = gl.createBuffer();
+			const points = new Float32Array([0, 0, 1, 0, 0, 1]);
+			gl.bindBuffer(gl.ARRAY_BUFFER, pointBuf);
+			gl.bufferData(gl.ARRAY_BUFFER, points, gl.STATIC_DRAW);
+			gl.enableVertexAttribArray(aPositionIdx);
+			gl.vertexAttribPointer(aPositionIdx, 2, gl.FLOAT, false, 0, 0);
+			gl.useProgram(program);
+			gl.drawArrays(gl.TRIANGLES, 0, 3);
+		</script>
+	</body>
+</html>

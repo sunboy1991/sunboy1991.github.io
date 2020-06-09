@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>react组件构建 | FrontEnd Docs</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/logo.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="前端绿书">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="preload" href="/assets/css/0.styles.c1486ec1.css" as="style"><link rel="preload" href="/assets/js/app.67496c89.js" as="script"><link rel="preload" href="/assets/js/3.cf7a9944.js" as="script"><link rel="preload" href="/assets/js/101.eb45a818.js" as="script"><link rel="preload" href="/assets/js/12.94a768b4.js" as="script"><link rel="prefetch" href="/assets/js/10.72dd51a9.js"><link rel="prefetch" href="/assets/js/100.98c6437a.js"><link rel="prefetch" href="/assets/js/102.c8059a23.js"><link rel="prefetch" href="/assets/js/103.719a7352.js"><link rel="prefetch" href="/assets/js/104.bb5c0626.js"><link rel="prefetch" href="/assets/js/105.d56b10e7.js"><link rel="prefetch" href="/assets/js/106.ee13bfe6.js"><link rel="prefetch" href="/assets/js/107.beb2f5d5.js"><link rel="prefetch" href="/assets/js/108.ec980ce3.js"><link rel="prefetch" href="/assets/js/109.7fb0fb3c.js"><link rel="prefetch" href="/assets/js/11.a9a74280.js"><link rel="prefetch" href="/assets/js/110.7fa66a00.js"><link rel="prefetch" href="/assets/js/111.9d3ab7f2.js"><link rel="prefetch" href="/assets/js/112.5c7b26a4.js"><link rel="prefetch" href="/assets/js/113.b222d8dd.js"><link rel="prefetch" href="/assets/js/114.94a7e36e.js"><link rel="prefetch" href="/assets/js/115.90a5ee34.js"><link rel="prefetch" href="/assets/js/116.45f014b1.js"><link rel="prefetch" href="/assets/js/117.aaeadc9a.js"><link rel="prefetch" href="/assets/js/118.123a5bb8.js"><link rel="prefetch" href="/assets/js/119.bf94e0aa.js"><link rel="prefetch" href="/assets/js/120.918a8a4c.js"><link rel="prefetch" href="/assets/js/121.6791fa17.js"><link rel="prefetch" href="/assets/js/122.5fae21f2.js"><link rel="prefetch" href="/assets/js/123.0ff6ef7f.js"><link rel="prefetch" href="/assets/js/124.4f076072.js"><link rel="prefetch" href="/assets/js/125.3b628c2c.js"><link rel="prefetch" href="/assets/js/126.47f80e59.js"><link rel="prefetch" href="/assets/js/127.d6e2375f.js"><link rel="prefetch" href="/assets/js/128.b1c16eb7.js"><link rel="prefetch" href="/assets/js/129.ddcee480.js"><link rel="prefetch" href="/assets/js/13.3f4b963d.js"><link rel="prefetch" href="/assets/js/130.259325dd.js"><link rel="prefetch" href="/assets/js/131.420db52f.js"><link rel="prefetch" href="/assets/js/132.08de9589.js"><link rel="prefetch" href="/assets/js/133.369f5900.js"><link rel="prefetch" href="/assets/js/134.60597180.js"><link rel="prefetch" href="/assets/js/135.5d6e8d4f.js"><link rel="prefetch" href="/assets/js/136.fc4795d9.js"><link rel="prefetch" href="/assets/js/137.fe293f5c.js"><link rel="prefetch" href="/assets/js/138.bdf26548.js"><link rel="prefetch" href="/assets/js/139.de2ce565.js"><link rel="prefetch" href="/assets/js/14.c419df94.js"><link rel="prefetch" href="/assets/js/140.ac48cdb4.js"><link rel="prefetch" href="/assets/js/141.b53c7064.js"><link rel="prefetch" href="/assets/js/142.190e982d.js"><link rel="prefetch" href="/assets/js/143.9330f378.js"><link rel="prefetch" href="/assets/js/144.75d77e3b.js"><link rel="prefetch" href="/assets/js/145.859b1115.js"><link rel="prefetch" href="/assets/js/146.fd421688.js"><link rel="prefetch" href="/assets/js/147.71cb52f1.js"><link rel="prefetch" href="/assets/js/148.8184946a.js"><link rel="prefetch" href="/assets/js/149.08f45cb6.js"><link rel="prefetch" href="/assets/js/15.6bde15d0.js"><link rel="prefetch" href="/assets/js/150.2dbd76ae.js"><link rel="prefetch" href="/assets/js/151.63d79f79.js"><link rel="prefetch" href="/assets/js/152.165e84ed.js"><link rel="prefetch" href="/assets/js/153.3a77aa03.js"><link rel="prefetch" href="/assets/js/154.03cccc6b.js"><link rel="prefetch" href="/assets/js/155.954bec1c.js"><link rel="prefetch" href="/assets/js/156.2d0b239b.js"><link rel="prefetch" href="/assets/js/157.b84b94c3.js"><link rel="prefetch" href="/assets/js/158.965c0bf4.js"><link rel="prefetch" href="/assets/js/159.0df6270d.js"><link rel="prefetch" href="/assets/js/16.f64b5708.js"><link rel="prefetch" href="/assets/js/160.1f01d1f1.js"><link rel="prefetch" href="/assets/js/161.bb5365ac.js"><link rel="prefetch" href="/assets/js/162.c11c02c5.js"><link rel="prefetch" href="/assets/js/163.0e36a992.js"><link rel="prefetch" href="/assets/js/164.d0be1d0a.js"><link rel="prefetch" href="/assets/js/165.a996c12e.js"><link rel="prefetch" href="/assets/js/166.04d8b4cd.js"><link rel="prefetch" href="/assets/js/167.5a52dd8c.js"><link rel="prefetch" href="/assets/js/168.6243335c.js"><link rel="prefetch" href="/assets/js/169.f7db8c31.js"><link rel="prefetch" href="/assets/js/17.ec50c2e8.js"><link rel="prefetch" href="/assets/js/18.7e5c0d96.js"><link rel="prefetch" href="/assets/js/19.22328a07.js"><link rel="prefetch" href="/assets/js/20.d1f009d8.js"><link rel="prefetch" href="/assets/js/21.31b999e5.js"><link rel="prefetch" href="/assets/js/22.94a80e87.js"><link rel="prefetch" href="/assets/js/23.c6a77eaa.js"><link rel="prefetch" href="/assets/js/24.6b022e3d.js"><link rel="prefetch" href="/assets/js/25.3ea7d7a5.js"><link rel="prefetch" href="/assets/js/26.4fc702b1.js"><link rel="prefetch" href="/assets/js/27.ae18b4c5.js"><link rel="prefetch" href="/assets/js/28.509e8e1c.js"><link rel="prefetch" href="/assets/js/29.2f2dbcec.js"><link rel="prefetch" href="/assets/js/30.285d2cdc.js"><link rel="prefetch" href="/assets/js/31.78ed841d.js"><link rel="prefetch" href="/assets/js/32.668dd221.js"><link rel="prefetch" href="/assets/js/33.e994e75a.js"><link rel="prefetch" href="/assets/js/34.f45db2b5.js"><link rel="prefetch" href="/assets/js/35.90131936.js"><link rel="prefetch" href="/assets/js/36.e484cdd8.js"><link rel="prefetch" href="/assets/js/37.0dc73f95.js"><link rel="prefetch" href="/assets/js/38.94c002c9.js"><link rel="prefetch" href="/assets/js/39.25b893af.js"><link rel="prefetch" href="/assets/js/4.2f1119d0.js"><link rel="prefetch" href="/assets/js/40.b52df712.js"><link rel="prefetch" href="/assets/js/41.86f1e893.js"><link rel="prefetch" href="/assets/js/42.aabc3fb9.js"><link rel="prefetch" href="/assets/js/43.929d84fe.js"><link rel="prefetch" href="/assets/js/44.35fdd5c1.js"><link rel="prefetch" href="/assets/js/45.ede220bf.js"><link rel="prefetch" href="/assets/js/46.09e63517.js"><link rel="prefetch" href="/assets/js/47.8eec2110.js"><link rel="prefetch" href="/assets/js/48.19ddf9c0.js"><link rel="prefetch" href="/assets/js/49.c00546d1.js"><link rel="prefetch" href="/assets/js/5.48085d33.js"><link rel="prefetch" href="/assets/js/50.9b8689db.js"><link rel="prefetch" href="/assets/js/51.5dd466df.js"><link rel="prefetch" href="/assets/js/52.9cb4bcd5.js"><link rel="prefetch" href="/assets/js/53.9bd1ce7a.js"><link rel="prefetch" href="/assets/js/54.003b9d7f.js"><link rel="prefetch" href="/assets/js/55.2d7fc27b.js"><link rel="prefetch" href="/assets/js/56.56f6b85a.js"><link rel="prefetch" href="/assets/js/57.74d54da1.js"><link rel="prefetch" href="/assets/js/58.8815e01d.js"><link rel="prefetch" href="/assets/js/59.c7420375.js"><link rel="prefetch" href="/assets/js/6.d8f8d980.js"><link rel="prefetch" href="/assets/js/60.ccd9357e.js"><link rel="prefetch" href="/assets/js/61.6a22933e.js"><link rel="prefetch" href="/assets/js/62.1d72f48f.js"><link rel="prefetch" href="/assets/js/63.59f63f00.js"><link rel="prefetch" href="/assets/js/64.cb59af98.js"><link rel="prefetch" href="/assets/js/65.64418aac.js"><link rel="prefetch" href="/assets/js/66.2cb00529.js"><link rel="prefetch" href="/assets/js/67.08980ba0.js"><link rel="prefetch" href="/assets/js/68.cdd0269c.js"><link rel="prefetch" href="/assets/js/69.a861ad80.js"><link rel="prefetch" href="/assets/js/7.f8e9d384.js"><link rel="prefetch" href="/assets/js/70.09840999.js"><link rel="prefetch" href="/assets/js/71.44a5a193.js"><link rel="prefetch" href="/assets/js/72.2d132b64.js"><link rel="prefetch" href="/assets/js/73.7ef286d2.js"><link rel="prefetch" href="/assets/js/74.07bf8129.js"><link rel="prefetch" href="/assets/js/75.90fe3ca7.js"><link rel="prefetch" href="/assets/js/76.56c2c99a.js"><link rel="prefetch" href="/assets/js/77.af57fbbf.js"><link rel="prefetch" href="/assets/js/78.7c8a06ff.js"><link rel="prefetch" href="/assets/js/79.fe7ea232.js"><link rel="prefetch" href="/assets/js/8.0852472a.js"><link rel="prefetch" href="/assets/js/80.34c69a2e.js"><link rel="prefetch" href="/assets/js/81.0a6b3334.js"><link rel="prefetch" href="/assets/js/82.d2ea377d.js"><link rel="prefetch" href="/assets/js/83.a2385caa.js"><link rel="prefetch" href="/assets/js/84.31ceb4a2.js"><link rel="prefetch" href="/assets/js/85.9a3c6911.js"><link rel="prefetch" href="/assets/js/86.a2dd891d.js"><link rel="prefetch" href="/assets/js/87.f66f4793.js"><link rel="prefetch" href="/assets/js/88.597c0c7b.js"><link rel="prefetch" href="/assets/js/89.49025ed1.js"><link rel="prefetch" href="/assets/js/9.fd9e5888.js"><link rel="prefetch" href="/assets/js/90.c41cf32e.js"><link rel="prefetch" href="/assets/js/91.0ed38cd2.js"><link rel="prefetch" href="/assets/js/92.b45d23a4.js"><link rel="prefetch" href="/assets/js/93.5395792e.js"><link rel="prefetch" href="/assets/js/94.70f92ca6.js"><link rel="prefetch" href="/assets/js/95.046c7977.js"><link rel="prefetch" href="/assets/js/96.10714986.js"><link rel="prefetch" href="/assets/js/97.d59afd13.js"><link rel="prefetch" href="/assets/js/98.037e0ea9.js"><link rel="prefetch" href="/assets/js/99.cbd43b24.js"><link rel="prefetch" href="/assets/js/vendors~notification.2df74b03.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c1486ec1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">FrontEnd Docs</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Develop/" class="nav-link router-link-active">
+  工程开发
+</a></div><div class="nav-item"><a href="/Client/" class="nav-link">
+  端技术
+</a></div><div class="nav-item"><a href="/Engineering/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/Graphical/" class="nav-link">
+  图形技术
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多专题" class="dropdown-title"><span class="title">更多专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          中台
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/SSR/start.html" class="nav-link">
+  SSR
+</a></li><li class="dropdown-subitem"><a href="/Node/start.html" class="nav-link">
+  Node
+</a></li><li class="dropdown-subitem"><a href="/Middleware/start.html" class="nav-link">
+  中间件
+</a></li><li class="dropdown-subitem"><a href="/MicroFrontend/start.html" class="nav-link">
+  微前端
+</a></li><li class="dropdown-subitem"><a href="/Serverless/start.html" class="nav-link">
+  Serverless
+</a></li></ul></li><li class="dropdown-item"><h4>
+          媒体技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Audio/start.html" class="nav-link">
+  音频
+</a></li><li class="dropdown-subitem"><a href="/Video/start.html" class="nav-link">
+  视频
+</a></li></ul></li><li class="dropdown-item"><h4>
+          跨端技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Flutter/start.html" class="nav-link">
+  Flutter
+</a></li><li class="dropdown-subitem"><a href="/PWA/start.html" class="nav-link">
+  PWA
+</a></li><li class="dropdown-subitem"><a href="/React-Native/start.html" class="nav-link">
+  React-Native
+</a></li></ul></li><li class="dropdown-item"><h4>
+          编程思想
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/FrameworkDesign/start.html" class="nav-link">
+  框架设计
+</a></li><li class="dropdown-subitem"><a href="/DesignPattern/start.html" class="nav-link">
+  设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          底层原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/V8/start.html" class="nav-link">
+  V8
+</a></li><li class="dropdown-subitem"><a href="/Webkit/start.html" class="nav-link">
+  webkit
+</a></li><li class="dropdown-subitem"><a href="/VirtualDOM/start.html" class="nav-link">
+  virtual DOM
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Develop/" class="nav-link router-link-active">
+  工程开发
+</a></div><div class="nav-item"><a href="/Client/" class="nav-link">
+  端技术
+</a></div><div class="nav-item"><a href="/Engineering/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/Graphical/" class="nav-link">
+  图形技术
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多专题" class="dropdown-title"><span class="title">更多专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          中台
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/SSR/start.html" class="nav-link">
+  SSR
+</a></li><li class="dropdown-subitem"><a href="/Node/start.html" class="nav-link">
+  Node
+</a></li><li class="dropdown-subitem"><a href="/Middleware/start.html" class="nav-link">
+  中间件
+</a></li><li class="dropdown-subitem"><a href="/MicroFrontend/start.html" class="nav-link">
+  微前端
+</a></li><li class="dropdown-subitem"><a href="/Serverless/start.html" class="nav-link">
+  Serverless
+</a></li></ul></li><li class="dropdown-item"><h4>
+          媒体技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Audio/start.html" class="nav-link">
+  音频
+</a></li><li class="dropdown-subitem"><a href="/Video/start.html" class="nav-link">
+  视频
+</a></li></ul></li><li class="dropdown-item"><h4>
+          跨端技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Flutter/start.html" class="nav-link">
+  Flutter
+</a></li><li class="dropdown-subitem"><a href="/PWA/start.html" class="nav-link">
+  PWA
+</a></li><li class="dropdown-subitem"><a href="/React-Native/start.html" class="nav-link">
+  React-Native
+</a></li></ul></li><li class="dropdown-item"><h4>
+          编程思想
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/FrameworkDesign/start.html" class="nav-link">
+  框架设计
+</a></li><li class="dropdown-subitem"><a href="/DesignPattern/start.html" class="nav-link">
+  设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          底层原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/V8/start.html" class="nav-link">
+  V8
+</a></li><li class="dropdown-subitem"><a href="/Webkit/start.html" class="nav-link">
+  webkit
+</a></li><li class="dropdown-subitem"><a href="/VirtualDOM/start.html" class="nav-link">
+  virtual DOM
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ES5</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ES6+</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Typescript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>React</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Develop/7-React/standard.html" class="sidebar-link">规范</a></li><li><a href="/Develop/7-React/best-practices.html" class="sidebar-link">最佳实践</a></li><li><a href="/Develop/7-React/share/mobx树型结构组织项目状态管理.html" class="sidebar-link">mobx树型结构组织项目状态管理</a></li><li><a href="/Develop/7-React/share/react命名风格.html" class="sidebar-link">react命名风格</a></li><li><a href="/Develop/7-React/share/react开发变量命名.html" class="sidebar-link">react开发变量命名</a></li><li><a href="/Develop/7-React/share/react的nameVariable.html" class="sidebar-link">react的nameVariable</a></li><li><a href="/Develop/7-React/share/React组件创建方式.html" class="sidebar-link">React组件创建方式</a></li><li><a href="/Develop/7-React/share/react组件拆分标准.html" class="sidebar-link">react组件拆分标准</a></li><li><a href="/Develop/7-React/share/react组件构建.html" class="active sidebar-link">react组件构建</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Develop/7-React/share/react视图页面构建.html" class="sidebar-link">react视图页面构建</a></li><li><a href="/Develop/7-React/share/react部件构建.html" class="sidebar-link">react部件构建</a></li><li><a href="/Develop/7-React/share/实践技巧：不要滥用三元表达式.html" class="sidebar-link">实践技巧：不要滥用三元表达式</a></li><li><a href="/Develop/7-React/share/实践技巧：函数命名.html" class="sidebar-link">实践技巧：函数命名</a></li><li><a href="/Develop/7-React/share/实践技巧：列表渲染要拆分出去.html" class="sidebar-link">实践技巧：列表渲染要拆分出去</a></li><li><a href="/Develop/7-React/share/实践技巧：合理正确的单词.html" class="sidebar-link">实践技巧：合理正确的单词</a></li><li><a href="/Develop/7-React/share/实践技巧：少用if和switch.html" class="sidebar-link">实践技巧：少用if和switch</a></li><li><a href="/Develop/7-React/share/实践技巧：模块构建.html" class="sidebar-link">实践技巧：模块构建</a></li><li><a href="/Develop/7-React/share/实践技巧：路由命名.html" class="sidebar-link">实践技巧：路由命名</a></li><li><a href="/Develop/7-React/share/现代Web单页应用实践.html" class="sidebar-link">现代Web单页应用实践</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="react组件构建"><a href="#react组件构建" class="header-anchor">#</a> react组件构建</h1> <p>我们可以将一些功能性的，多个页面或者多个部件重复性出现的代码封装起来，成为一个组件。</p> <p>与部件不同，组件不参与业务逻辑处理，就是不得在组件内部修改业务数据。它可以接受其他组件、部件、页面上的数据作为参数输入，然后将这些输出成页面 UI。</p> <p>当存在用户交互产生事件处理时，组件可以在不涉及业务数据的情况下进行处理，而当这部分事件会造成业务数据的变动时，组件应当将事件暴露给部件或者页面去处理。</p> <blockquote><p>什么是业务数据？业务数据主要是那些从后端请求来或者需要提交给后端的数据，简而言之，就是与后端交互产生的数据。</p></blockquote> <p>之所以不让组件涉及到业务数据的处理，目的是尽量让组件与页面解耦，当其耦合性越低，复用率就越高，就能写越少的代码。</p> <p>其次是为组件的改动或者 debug 考虑的，只要保持好组件参数字段与对外的事件接口不变，组件内部可以随意改动而不会影响业务逻辑。</p> <p>一个简单的组件</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">CItem</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> <span class="token punctuation">{</span> url<span class="token punctuation">,</span> name <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>li onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>onClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token punctuation">{</span>url<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token punctuation">{</span>name<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function-variable function">onClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">typeof</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>onClick <span class="token operator">===</span> <span class="token string">&quot;function&quot;</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">onClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>一般来讲，一个组件的状态最好由外部来控制，但更多的时候，外部并不需要关心你的组件内部是怎么样的，只关心对组件的输入和输出。<br>
+打个比方，一个数字输入框组件，如果用户对其输入一个字母，我们要让输入框的边框变红对用户的行为进行警告。输入框边框颜色我们自然可以交给外部去控制，仅仅是让外部传一个参数进来就可以了。但是，当外部更加关心用户输入的内容的时候，我们建议将边框变红的行为让组件内部自己处理。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token punctuation">{</span><span class="token operator">%</span>raw <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">CNumberInputer</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+            isWarn<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            value<span class="token operator">:</span> <span class="token string">&quot;&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>input
+                type<span class="token operator">=</span><span class="token string">&quot;tel&quot;</span>
+            style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+                    borderColor<span class="token operator">:</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>isWarn <span class="token operator">?</span> <span class="token string">&quot;red&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;blue&quot;</span>
+			<span class="token punctuation">}</span><span class="token punctuation">}</span>
+                value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
+                onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>onChange<span class="token punctuation">}</span>
+            <span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function-variable function">onChange</span> <span class="token operator">=</span> <span class="token parameter">e</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> value <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+        <span class="token keyword">let</span> isWarn <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token regex">/[^\d\.]/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            isWarn <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value<span class="token punctuation">,</span> isWarn <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">!</span>isWarn <span class="token operator">&amp;&amp;</span>
+            <span class="token keyword">typeof</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>onChange <span class="token operator">===</span> <span class="token string">&quot;function&quot;</span> <span class="token operator">&amp;&amp;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">onChange</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span>endraw <span class="token operator">%</span><span class="token punctuation">}</span>
+</code></pre></div><p>是要让外部尽量去控制你组件的状态，还是要让组件只暴露关键事件和接受关键传参，这个要靠你自己的需求了。具体情况具体分析，不同组件作用不一样，这里没法给出一个统一的答案。</p> <p>最后，如果这个组件是可以让不同模块使用的，就把组件文件放到项目目录下的<code>components/Common</code>目录下。<br>
+如果这个组件只是模块内页面使用的，就把组件放到项目目录下的<code>components/模块名</code>下。<br>
+如果这个组件只是页面内部件使用的，就把组件放到项目目录下的<code>pages/模块名/页面名/components</code>目录下</p> <div class="language-shell extra-class"><pre class="language-shell"><code>src
+│
+├─── components                <span class="token comment"># 组件</span>
+│    │
+│    ├─── Common                   <span class="token comment"># 全局用组件目录</span>
+│    │    │
+│    │    └─── NumberInput             <span class="token comment"># 组件目录</span>
+│    │         │    index.js
+│    │
+│    ├─── Game                     <span class="token comment"># 模块通用组件目录</span>
+│    │    │
+│    │    └─── Item                    <span class="token comment"># 组件目录</span>
+│    │         │    index.js
+│    │
+│    └─── User                     <span class="token comment"># 模块通用组件目录</span>
+│
+├─── pages
+│    │
+│    ├─── Game                 <span class="token comment"># 游戏模块目录</span>
+│    │    │    index.js            <span class="token comment"># 模块入口文件，分发子路由</span>
+│    │    └─── List                <span class="token comment"># 游戏评论页目录</span>
+│    │         │    index.js
+│    │         │    header.js
+│    │         │    xxx.js
+│    │         └─── components         <span class="token comment"># 私有组件目录</span>
+│    │              │
+│    │              └─── Item          <span class="token comment"># 组件目录</span>
+│    ├─── User                 <span class="token comment"># 用户模块目录</span>
+</code></pre></div><h3 id="注意事项"><a href="#注意事项" class="header-anchor">#</a> 注意事项</h3> <p>如果你将你写好的组件丢到通用目录里面，要注意写好该组件的文档，以及对props参数进行校验。<br>
+组件的文档建议是使用jsdoc注释加在文件里面</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> somthing <span class="token keyword">from</span> <span class="token string">'xxx'</span>
+<span class="token keyword">import</span> somthing <span class="token keyword">from</span> <span class="token string">'xxx'</span>
+<span class="token keyword">import</span> somthing <span class="token keyword">from</span> <span class="token string">'xxx'</span>
+
+<span class="token comment">/**
+ * @class 测试组件
+ * @desc 简单写一下组件的功能
+ * @prop {Number} value - 值
+ * @prop {Number} TimeStamp - 时间戳
+ * @prop {Function} onClick - 点击回调
+ * @prop {Function} onTranslateEnd - ...
+ * @method focus
+ * @method blur
+ * @method createItem
+*/</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">CTest</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span><span class="token punctuation">{</span>
+<span class="token comment">//	...</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Develop/7-React/share/react组件拆分标准.html" class="prev">
+        react组件拆分标准
+      </a></span> <span class="next"><a href="/Develop/7-React/share/react视图页面构建.html">
+        react视图页面构建
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.67496c89.js" defer></script><script src="/assets/js/3.cf7a9944.js" defer></script><script src="/assets/js/101.eb45a818.js" defer></script><script src="/assets/js/12.94a768b4.js" defer></script>
+  </body>
+</html>

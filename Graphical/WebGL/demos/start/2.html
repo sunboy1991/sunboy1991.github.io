@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body>
+        <p id="p">第三个顶点坐标(0,1)</p>
+		<script>
+            const p = document.getElementById('p')
+			const canvas = document.createElement("canvas");
+			canvas.width = 300;
+			canvas.height = 300;
+			canvas.style.background = "#000";
+			document.body.appendChild(canvas);
+			const gl = canvas.getContext("webgl");
+			const program = gl.createProgram();
+			const vtxShader = gl.createShader(gl.VERTEX_SHADER);
+			const fgmShader = gl.createShader(gl.FRAGMENT_SHADER);
+			gl.shaderSource(
+				vtxShader,
+				`attribute vec2 a_Position;
+				void main(){
+					gl_Position = vec4(a_Position,0.,1.);
+				}`
+			);
+			gl.compileShader(vtxShader);
+			gl.attachShader(program, vtxShader);
+			gl.shaderSource(
+				fgmShader,
+				`void main(){
+					gl_FragColor = vec4(1.,0.,0.,1.);
+				}`
+			);
+			gl.compileShader(fgmShader);
+			gl.attachShader(program, fgmShader);
+			gl.linkProgram(program);
+			const aPositionIdx = gl.getAttribLocation(program, "a_Position");
+			const pointBuf = gl.createBuffer();
+			const points = new Float32Array([0, 0, 1, 0, 0, 1]);
+			gl.bindBuffer(gl.ARRAY_BUFFER, pointBuf);
+			gl.bufferData(gl.ARRAY_BUFFER, points, gl.STATIC_DRAW);
+			gl.enableVertexAttribArray(aPositionIdx);
+			gl.vertexAttribPointer(aPositionIdx, 2, gl.FLOAT, false, 0, 0);
+			gl.useProgram(program);
+			gl.drawArrays(gl.TRIANGLES, 0, 3);
+
+			canvas.onmousemove = e => {
+				//把数据归一化（计算成0~1的范围内）
+				let x = e.offsetX / canvas.width;
+				let y = e.offsetY / canvas.height;
+
+				//由上文运行结果可知，(0,0)是中心点，左端点是(-1,0)，右端点是(1,0)
+				points[4] = x * 2 - 1;
+
+				//由上文运行结果可知，(0,0)是中心点，上端点是(0,1)，下端点是(0,-1)
+                points[5] = 1 - y * 2;
+                
+                p.innerText=`第三个顶点坐标(${points[4].toFixed(2)},${points[5].toFixed(2)})`
+                
+                //重新写入缓存
+                gl.bufferData(gl.ARRAY_BUFFER, points, gl.STATIC_DRAW);
+
+				gl.clear(gl.COLOR_BUFFER_BIT);
+				gl.drawArrays(gl.TRIANGLES, 0, 3);
+			};
+		</script>
+	</body>
+</html>

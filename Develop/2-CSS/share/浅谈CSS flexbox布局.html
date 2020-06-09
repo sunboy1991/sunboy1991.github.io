@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>浅谈CSS flexbox 布局 | FrontEnd Docs</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/logo.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="前端绿书">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="preload" href="/assets/css/0.styles.c1486ec1.css" as="style"><link rel="preload" href="/assets/js/app.67496c89.js" as="script"><link rel="preload" href="/assets/js/3.cf7a9944.js" as="script"><link rel="preload" href="/assets/js/64.cb59af98.js" as="script"><link rel="preload" href="/assets/js/12.94a768b4.js" as="script"><link rel="prefetch" href="/assets/js/10.72dd51a9.js"><link rel="prefetch" href="/assets/js/100.98c6437a.js"><link rel="prefetch" href="/assets/js/101.eb45a818.js"><link rel="prefetch" href="/assets/js/102.c8059a23.js"><link rel="prefetch" href="/assets/js/103.719a7352.js"><link rel="prefetch" href="/assets/js/104.bb5c0626.js"><link rel="prefetch" href="/assets/js/105.d56b10e7.js"><link rel="prefetch" href="/assets/js/106.ee13bfe6.js"><link rel="prefetch" href="/assets/js/107.beb2f5d5.js"><link rel="prefetch" href="/assets/js/108.ec980ce3.js"><link rel="prefetch" href="/assets/js/109.7fb0fb3c.js"><link rel="prefetch" href="/assets/js/11.a9a74280.js"><link rel="prefetch" href="/assets/js/110.7fa66a00.js"><link rel="prefetch" href="/assets/js/111.9d3ab7f2.js"><link rel="prefetch" href="/assets/js/112.5c7b26a4.js"><link rel="prefetch" href="/assets/js/113.b222d8dd.js"><link rel="prefetch" href="/assets/js/114.94a7e36e.js"><link rel="prefetch" href="/assets/js/115.90a5ee34.js"><link rel="prefetch" href="/assets/js/116.45f014b1.js"><link rel="prefetch" href="/assets/js/117.aaeadc9a.js"><link rel="prefetch" href="/assets/js/118.123a5bb8.js"><link rel="prefetch" href="/assets/js/119.bf94e0aa.js"><link rel="prefetch" href="/assets/js/120.918a8a4c.js"><link rel="prefetch" href="/assets/js/121.6791fa17.js"><link rel="prefetch" href="/assets/js/122.5fae21f2.js"><link rel="prefetch" href="/assets/js/123.0ff6ef7f.js"><link rel="prefetch" href="/assets/js/124.4f076072.js"><link rel="prefetch" href="/assets/js/125.3b628c2c.js"><link rel="prefetch" href="/assets/js/126.47f80e59.js"><link rel="prefetch" href="/assets/js/127.d6e2375f.js"><link rel="prefetch" href="/assets/js/128.b1c16eb7.js"><link rel="prefetch" href="/assets/js/129.ddcee480.js"><link rel="prefetch" href="/assets/js/13.3f4b963d.js"><link rel="prefetch" href="/assets/js/130.259325dd.js"><link rel="prefetch" href="/assets/js/131.420db52f.js"><link rel="prefetch" href="/assets/js/132.08de9589.js"><link rel="prefetch" href="/assets/js/133.369f5900.js"><link rel="prefetch" href="/assets/js/134.60597180.js"><link rel="prefetch" href="/assets/js/135.5d6e8d4f.js"><link rel="prefetch" href="/assets/js/136.fc4795d9.js"><link rel="prefetch" href="/assets/js/137.fe293f5c.js"><link rel="prefetch" href="/assets/js/138.bdf26548.js"><link rel="prefetch" href="/assets/js/139.de2ce565.js"><link rel="prefetch" href="/assets/js/14.c419df94.js"><link rel="prefetch" href="/assets/js/140.ac48cdb4.js"><link rel="prefetch" href="/assets/js/141.b53c7064.js"><link rel="prefetch" href="/assets/js/142.190e982d.js"><link rel="prefetch" href="/assets/js/143.9330f378.js"><link rel="prefetch" href="/assets/js/144.75d77e3b.js"><link rel="prefetch" href="/assets/js/145.859b1115.js"><link rel="prefetch" href="/assets/js/146.fd421688.js"><link rel="prefetch" href="/assets/js/147.71cb52f1.js"><link rel="prefetch" href="/assets/js/148.8184946a.js"><link rel="prefetch" href="/assets/js/149.08f45cb6.js"><link rel="prefetch" href="/assets/js/15.6bde15d0.js"><link rel="prefetch" href="/assets/js/150.2dbd76ae.js"><link rel="prefetch" href="/assets/js/151.63d79f79.js"><link rel="prefetch" href="/assets/js/152.165e84ed.js"><link rel="prefetch" href="/assets/js/153.3a77aa03.js"><link rel="prefetch" href="/assets/js/154.03cccc6b.js"><link rel="prefetch" href="/assets/js/155.954bec1c.js"><link rel="prefetch" href="/assets/js/156.2d0b239b.js"><link rel="prefetch" href="/assets/js/157.b84b94c3.js"><link rel="prefetch" href="/assets/js/158.965c0bf4.js"><link rel="prefetch" href="/assets/js/159.0df6270d.js"><link rel="prefetch" href="/assets/js/16.f64b5708.js"><link rel="prefetch" href="/assets/js/160.1f01d1f1.js"><link rel="prefetch" href="/assets/js/161.bb5365ac.js"><link rel="prefetch" href="/assets/js/162.c11c02c5.js"><link rel="prefetch" href="/assets/js/163.0e36a992.js"><link rel="prefetch" href="/assets/js/164.d0be1d0a.js"><link rel="prefetch" href="/assets/js/165.a996c12e.js"><link rel="prefetch" href="/assets/js/166.04d8b4cd.js"><link rel="prefetch" href="/assets/js/167.5a52dd8c.js"><link rel="prefetch" href="/assets/js/168.6243335c.js"><link rel="prefetch" href="/assets/js/169.f7db8c31.js"><link rel="prefetch" href="/assets/js/17.ec50c2e8.js"><link rel="prefetch" href="/assets/js/18.7e5c0d96.js"><link rel="prefetch" href="/assets/js/19.22328a07.js"><link rel="prefetch" href="/assets/js/20.d1f009d8.js"><link rel="prefetch" href="/assets/js/21.31b999e5.js"><link rel="prefetch" href="/assets/js/22.94a80e87.js"><link rel="prefetch" href="/assets/js/23.c6a77eaa.js"><link rel="prefetch" href="/assets/js/24.6b022e3d.js"><link rel="prefetch" href="/assets/js/25.3ea7d7a5.js"><link rel="prefetch" href="/assets/js/26.4fc702b1.js"><link rel="prefetch" href="/assets/js/27.ae18b4c5.js"><link rel="prefetch" href="/assets/js/28.509e8e1c.js"><link rel="prefetch" href="/assets/js/29.2f2dbcec.js"><link rel="prefetch" href="/assets/js/30.285d2cdc.js"><link rel="prefetch" href="/assets/js/31.78ed841d.js"><link rel="prefetch" href="/assets/js/32.668dd221.js"><link rel="prefetch" href="/assets/js/33.e994e75a.js"><link rel="prefetch" href="/assets/js/34.f45db2b5.js"><link rel="prefetch" href="/assets/js/35.90131936.js"><link rel="prefetch" href="/assets/js/36.e484cdd8.js"><link rel="prefetch" href="/assets/js/37.0dc73f95.js"><link rel="prefetch" href="/assets/js/38.94c002c9.js"><link rel="prefetch" href="/assets/js/39.25b893af.js"><link rel="prefetch" href="/assets/js/4.2f1119d0.js"><link rel="prefetch" href="/assets/js/40.b52df712.js"><link rel="prefetch" href="/assets/js/41.86f1e893.js"><link rel="prefetch" href="/assets/js/42.aabc3fb9.js"><link rel="prefetch" href="/assets/js/43.929d84fe.js"><link rel="prefetch" href="/assets/js/44.35fdd5c1.js"><link rel="prefetch" href="/assets/js/45.ede220bf.js"><link rel="prefetch" href="/assets/js/46.09e63517.js"><link rel="prefetch" href="/assets/js/47.8eec2110.js"><link rel="prefetch" href="/assets/js/48.19ddf9c0.js"><link rel="prefetch" href="/assets/js/49.c00546d1.js"><link rel="prefetch" href="/assets/js/5.48085d33.js"><link rel="prefetch" href="/assets/js/50.9b8689db.js"><link rel="prefetch" href="/assets/js/51.5dd466df.js"><link rel="prefetch" href="/assets/js/52.9cb4bcd5.js"><link rel="prefetch" href="/assets/js/53.9bd1ce7a.js"><link rel="prefetch" href="/assets/js/54.003b9d7f.js"><link rel="prefetch" href="/assets/js/55.2d7fc27b.js"><link rel="prefetch" href="/assets/js/56.56f6b85a.js"><link rel="prefetch" href="/assets/js/57.74d54da1.js"><link rel="prefetch" href="/assets/js/58.8815e01d.js"><link rel="prefetch" href="/assets/js/59.c7420375.js"><link rel="prefetch" href="/assets/js/6.d8f8d980.js"><link rel="prefetch" href="/assets/js/60.ccd9357e.js"><link rel="prefetch" href="/assets/js/61.6a22933e.js"><link rel="prefetch" href="/assets/js/62.1d72f48f.js"><link rel="prefetch" href="/assets/js/63.59f63f00.js"><link rel="prefetch" href="/assets/js/65.64418aac.js"><link rel="prefetch" href="/assets/js/66.2cb00529.js"><link rel="prefetch" href="/assets/js/67.08980ba0.js"><link rel="prefetch" href="/assets/js/68.cdd0269c.js"><link rel="prefetch" href="/assets/js/69.a861ad80.js"><link rel="prefetch" href="/assets/js/7.f8e9d384.js"><link rel="prefetch" href="/assets/js/70.09840999.js"><link rel="prefetch" href="/assets/js/71.44a5a193.js"><link rel="prefetch" href="/assets/js/72.2d132b64.js"><link rel="prefetch" href="/assets/js/73.7ef286d2.js"><link rel="prefetch" href="/assets/js/74.07bf8129.js"><link rel="prefetch" href="/assets/js/75.90fe3ca7.js"><link rel="prefetch" href="/assets/js/76.56c2c99a.js"><link rel="prefetch" href="/assets/js/77.af57fbbf.js"><link rel="prefetch" href="/assets/js/78.7c8a06ff.js"><link rel="prefetch" href="/assets/js/79.fe7ea232.js"><link rel="prefetch" href="/assets/js/8.0852472a.js"><link rel="prefetch" href="/assets/js/80.34c69a2e.js"><link rel="prefetch" href="/assets/js/81.0a6b3334.js"><link rel="prefetch" href="/assets/js/82.d2ea377d.js"><link rel="prefetch" href="/assets/js/83.a2385caa.js"><link rel="prefetch" href="/assets/js/84.31ceb4a2.js"><link rel="prefetch" href="/assets/js/85.9a3c6911.js"><link rel="prefetch" href="/assets/js/86.a2dd891d.js"><link rel="prefetch" href="/assets/js/87.f66f4793.js"><link rel="prefetch" href="/assets/js/88.597c0c7b.js"><link rel="prefetch" href="/assets/js/89.49025ed1.js"><link rel="prefetch" href="/assets/js/9.fd9e5888.js"><link rel="prefetch" href="/assets/js/90.c41cf32e.js"><link rel="prefetch" href="/assets/js/91.0ed38cd2.js"><link rel="prefetch" href="/assets/js/92.b45d23a4.js"><link rel="prefetch" href="/assets/js/93.5395792e.js"><link rel="prefetch" href="/assets/js/94.70f92ca6.js"><link rel="prefetch" href="/assets/js/95.046c7977.js"><link rel="prefetch" href="/assets/js/96.10714986.js"><link rel="prefetch" href="/assets/js/97.d59afd13.js"><link rel="prefetch" href="/assets/js/98.037e0ea9.js"><link rel="prefetch" href="/assets/js/99.cbd43b24.js"><link rel="prefetch" href="/assets/js/vendors~notification.2df74b03.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c1486ec1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">FrontEnd Docs</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Develop/" class="nav-link router-link-active">
+  工程开发
+</a></div><div class="nav-item"><a href="/Client/" class="nav-link">
+  端技术
+</a></div><div class="nav-item"><a href="/Engineering/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/Graphical/" class="nav-link">
+  图形技术
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多专题" class="dropdown-title"><span class="title">更多专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          中台
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/SSR/start.html" class="nav-link">
+  SSR
+</a></li><li class="dropdown-subitem"><a href="/Node/start.html" class="nav-link">
+  Node
+</a></li><li class="dropdown-subitem"><a href="/Middleware/start.html" class="nav-link">
+  中间件
+</a></li><li class="dropdown-subitem"><a href="/MicroFrontend/start.html" class="nav-link">
+  微前端
+</a></li><li class="dropdown-subitem"><a href="/Serverless/start.html" class="nav-link">
+  Serverless
+</a></li></ul></li><li class="dropdown-item"><h4>
+          媒体技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Audio/start.html" class="nav-link">
+  音频
+</a></li><li class="dropdown-subitem"><a href="/Video/start.html" class="nav-link">
+  视频
+</a></li></ul></li><li class="dropdown-item"><h4>
+          跨端技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Flutter/start.html" class="nav-link">
+  Flutter
+</a></li><li class="dropdown-subitem"><a href="/PWA/start.html" class="nav-link">
+  PWA
+</a></li><li class="dropdown-subitem"><a href="/React-Native/start.html" class="nav-link">
+  React-Native
+</a></li></ul></li><li class="dropdown-item"><h4>
+          编程思想
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/FrameworkDesign/start.html" class="nav-link">
+  框架设计
+</a></li><li class="dropdown-subitem"><a href="/DesignPattern/start.html" class="nav-link">
+  设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          底层原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/V8/start.html" class="nav-link">
+  V8
+</a></li><li class="dropdown-subitem"><a href="/Webkit/start.html" class="nav-link">
+  webkit
+</a></li><li class="dropdown-subitem"><a href="/VirtualDOM/start.html" class="nav-link">
+  virtual DOM
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Develop/" class="nav-link router-link-active">
+  工程开发
+</a></div><div class="nav-item"><a href="/Client/" class="nav-link">
+  端技术
+</a></div><div class="nav-item"><a href="/Engineering/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/Graphical/" class="nav-link">
+  图形技术
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多专题" class="dropdown-title"><span class="title">更多专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          中台
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/SSR/start.html" class="nav-link">
+  SSR
+</a></li><li class="dropdown-subitem"><a href="/Node/start.html" class="nav-link">
+  Node
+</a></li><li class="dropdown-subitem"><a href="/Middleware/start.html" class="nav-link">
+  中间件
+</a></li><li class="dropdown-subitem"><a href="/MicroFrontend/start.html" class="nav-link">
+  微前端
+</a></li><li class="dropdown-subitem"><a href="/Serverless/start.html" class="nav-link">
+  Serverless
+</a></li></ul></li><li class="dropdown-item"><h4>
+          媒体技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Audio/start.html" class="nav-link">
+  音频
+</a></li><li class="dropdown-subitem"><a href="/Video/start.html" class="nav-link">
+  视频
+</a></li></ul></li><li class="dropdown-item"><h4>
+          跨端技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Flutter/start.html" class="nav-link">
+  Flutter
+</a></li><li class="dropdown-subitem"><a href="/PWA/start.html" class="nav-link">
+  PWA
+</a></li><li class="dropdown-subitem"><a href="/React-Native/start.html" class="nav-link">
+  React-Native
+</a></li></ul></li><li class="dropdown-item"><h4>
+          编程思想
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/FrameworkDesign/start.html" class="nav-link">
+  框架设计
+</a></li><li class="dropdown-subitem"><a href="/DesignPattern/start.html" class="nav-link">
+  设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          底层原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/V8/start.html" class="nav-link">
+  V8
+</a></li><li class="dropdown-subitem"><a href="/Webkit/start.html" class="nav-link">
+  webkit
+</a></li><li class="dropdown-subitem"><a href="/VirtualDOM/start.html" class="nav-link">
+  virtual DOM
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>CSS</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Develop/2-CSS/standard.html" class="sidebar-link">规范</a></li><li><a href="/Develop/2-CSS/best-practices.html" class="sidebar-link">最佳实践</a></li><li><a href="/Develop/2-CSS/share/flexbox指南.html" class="sidebar-link">flexbox 指南</a></li><li><a href="/Develop/2-CSS/share/浅谈CSS flexbox布局.html" class="active sidebar-link">浅谈CSS flexbox 布局</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Develop/2-CSS/share/浅谈CSS flexbox布局.html#一、序言" class="sidebar-link">一、序言</a></li><li class="sidebar-sub-header"><a href="/Develop/2-CSS/share/浅谈CSS flexbox布局.html#二、flexbox布局" class="sidebar-link">二、flexbox布局</a></li><li class="sidebar-sub-header"><a href="/Develop/2-CSS/share/浅谈CSS flexbox布局.html#三、flexbox布局实践" class="sidebar-link">三、flexbox布局实践</a></li><li class="sidebar-sub-header"><a href="/Develop/2-CSS/share/浅谈CSS flexbox布局.html#四、总结" class="sidebar-link">四、总结</a></li><li class="sidebar-sub-header"><a href="/Develop/2-CSS/share/浅谈CSS flexbox布局.html#参考文献" class="sidebar-link">参考文献</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ES5</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ES6+</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Typescript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="浅谈css-flexbox-布局"><a href="#浅谈css-flexbox-布局" class="header-anchor">#</a> 浅谈CSS flexbox 布局</h1> <p>[TOC]</p> <h2 id="一、序言"><a href="#一、序言" class="header-anchor">#</a> 一、序言</h2> <p>CSS作为构建Web生态的三大支柱之一，和JS相比，发展的步伐走的十分缓慢。1999年W3C推出CSS3后，时隔7年，诞生了sass类型的预处理器，直到2014年推出的 CSS Next并结合时下较为流行的CSS Modules后，CSS才勉强跟上野蛮生长的Web工程。</p> <p>其间，CSS布局经历了从早期table布局到DIV + CSS 布局的演进，应移动互联网主流的呼唤，标准委员会推出了弹性布局系统 flexbox 以及略有争议的网格布局 Grid。</p> <p>一切归结于这样的一个问题：怎样通过 CSS 简单而优雅完成静态页面布局。《CSS揭秘》的作者xxx形象说到，“多年以来，垂直进行水平居中已经成为了CSS领域的圣杯”，她还引用了James Anderson的推文</p> <blockquote><p>44年前我们就把人类送上月球了，但现在我们仍然无法在CSS中实现垂直居中</p></blockquote> <p>为了解决这样一个常见的布局问题，FE们绞尽脑汁，想出了许多不甚优雅的方案，像表格布局法，行内块法，绝对定位法（即大家熟悉的固定尺寸利用absolute的方法），基于视窗单位法（指vw, vh）等等，这些方案能在特定的条件下解决问题，但都不是通过一种直观的方式来解决。</p> <p>终于，在2009年，W3C制定了早期flexbox布局草案。时至今日，flexbox毋庸置疑成为业内最为推崇的布局解决方案，现在，我们试着用flexbox 实现垂直居中：</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token comment">/* 使用 flex 布局首先要设置父容器 display: flex，然后再设置 justify-content: center 实现水平居中，最后设置 align-items: center 实现垂直居中。 */</span>
+<span class="token selector">#myBox</span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><em><strong>So easy, right ?</strong></em></p> <p>下面，我们来详细认识flexbox.</p> <h2 id="二、flexbox布局"><a href="#二、flexbox布局" class="header-anchor">#</a> 二、flexbox布局</h2> <h3 id="flexbox-基本概念"><a href="#flexbox-基本概念" class="header-anchor">#</a> flexbox 基本概念</h3> <h4 id="flexbox布局是什么"><a href="#flexbox布局是什么" class="header-anchor">#</a> flexbox布局是什么</h4> <p>flexbox是CSS3中一个新特性，旨在提供一种更为有效、可控的布局方式，来更好地控制元素对齐和空间的分配，甚至是在元素未知大小或者动态的情况下，因而flexbox也被称作&quot;Flex布局&quot;。flexbox背后的主要思想是给容器控制元素的宽度、高度的能力，让其可以自动填满容器的可用空间。</p> <p>这个特性为Web开发带来极大的简便，特别是在移动终端的布局下，各大厂都有针对自身的一套布局最佳实践。一些常见的布局场景，像可伸缩、可拓展的内容、元素垂直居中、元素空间等分等，用flexbox来布局优势显现的更为强大。</p> <h4 id="flexbox-模型"><a href="#flexbox-模型" class="header-anchor">#</a> flexbox 模型</h4> <p>首先，flexbox是一个布局的模块，这意味着，它包含着一系列的东西，而不是单一的属性。</p> <p>flex 的核心的概念就是 容器 和 轴。容器包括外层的 父容器 和内层的 子容器，轴包括 主轴 和 交叉轴。</p> <p>作为容器的父元素，称为 flex容器（flex container），而容器的子元素，称为 flex项目（flex item）。</p> <p>规范中的一张图，解释了Flex布局的主要思想：</p> <p><img src="http://other-1251009253.file.myqcloud.com/for20171107/flex_terms.png" alt="来自https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox"></p> <p>flex item是沿着main axis(从main-start向main-end)或者cross axis(从cross-start向cross-end)排列。</p> <p>下面解释下各属性的概念：</p> <table><thead><tr><th style="text-align:left;">props</th> <th>description</th></tr></thead> <tbody><tr><td style="text-align:left;">main axis</td> <td>沿着 flex 元素放置的方向延伸的轴</td></tr> <tr><td style="text-align:left;">main-start | main-end</td> <td>主轴的开始与结束</td></tr> <tr><td style="text-align:left;">main size</td> <td>Flex项目的在主轴方向的宽度或高度就是项目的主轴长度，Flex项目的主轴长度属性是width或height属性，由哪个对着主轴方向决定</td></tr> <tr><td style="text-align:left;">cross axis</td> <td>垂直于 flex 元素放置方向的轴</td></tr> <tr><td style="text-align:left;">cross-start | cross-end</td> <td>交叉轴的开始与结束</td></tr> <tr><td style="text-align:left;">cross size</td> <td>Flex项目的在侧轴方向的宽度或高度就是项目的侧轴长度，Flex项目的侧轴长度属性是width或height属性，由哪个对着侧轴方向决定</td></tr></tbody></table> <h3 id="基础语法"><a href="#基础语法" class="header-anchor">#</a> 基础语法</h3> <p><img src="http://other-1251009253.file.myqcloud.com/for20171107/Flexbox-map.png" alt=""></p> <h4 id="_1-容器属性"><a href="#_1-容器属性" class="header-anchor">#</a> 1. 容器属性</h4> <p><strong>display</strong></p> <p>定义一个flex container，根据其取的值来决定是内联还是块。flex container会为其内容建立新的伸缩格式化上下文。</p> <p><strong>flex-direction</strong></p> <p>改属性主要决定flex item在容器内的排列方式：</p> <table><thead><tr><th>props</th> <th>description</th></tr></thead> <tbody><tr><td>row</td> <td>表示flex item以横向且从左到右的方式排列（ltr）</td></tr> <tr><td>row-reverse</td> <td>表示flex item以横向且从右到左的方式排列（rtl）</td></tr> <tr><td>column</td> <td>表示flex item以纵向且从上到下的方式排列（ttb）</td></tr> <tr><td>column-reverse</td> <td>表示以纵向且从下到上的方式排列（btt）</td></tr></tbody></table> <p><strong>flex-warp</strong></p> <p>默认情况下会让flex item保持在一行内，可以通过这个属性来设置让flex item是否换行（/列），这个属性结合着flex-direction属性可以决定换行后新的一行或一列的排序方式。</p> <table><thead><tr><th>props</th> <th>description</th></tr></thead> <tbody><tr><td>nowrap</td> <td>表示flex item保持在一行或一列（当flex-direction为column或column-reverse的时候）不换行/列</td></tr> <tr><td>wrap</td> <td>跟nowrap相反，表示flex item换行或换列，但以默认（左到右或上到下）的方式排列</td></tr> <tr><td>wrap-reverse</td> <td>表示flex item换行且反向排列（右到左或下到上）</td></tr></tbody></table> <p><strong>flex-flow</strong></p> <p>flex-direction和flex-wrap属性的简写</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token property">flex-flow</span><span class="token punctuation">:</span> &lt;flex-direction&gt; || &lt;flex-wrap&gt;  <span class="token comment">/* default row nowrap*/</span>
+</code></pre></div><p><strong>justify-content</strong></p> <p>这个属性定义了flex item在横轴方向的对齐方式，当flex item的尺寸在横轴方向都是不变的或者达到最大尺寸的情况下，用来分配额外剩余的可用空间，或者当flex item在横轴排布要超出容器的时候，进行压缩控制：</p> <table><thead><tr><th>props</th> <th>description</th></tr></thead> <tbody><tr><td>flex-start</td> <td>flex item在main轴开始方向对齐</td></tr> <tr><td>flex-end</td> <td>flex item在main轴结尾方向对齐</td></tr> <tr><td>center</td> <td>flex item在main轴居中对齐</td></tr> <tr><td>space-between</td> <td>flex item始终保持在一行，main轴两端对齐</td></tr> <tr><td>space-around</td> <td>flex item等间距对齐，但第一个元素距离容器左边的间隔是跟下一个元素间隔的二分之一，因为第一个元素右边有一个单元的间隔，第二个元素左边也有一个单元的间隔</td></tr></tbody></table> <p><strong>align-items</strong></p> <p>该属性定义了flex item在纵轴方向的对齐方式，可以把它想象为justify-content在纵轴方向的定义：</p> <table><thead><tr><th>props</th> <th>description</th></tr></thead> <tbody><tr><td>flex-start</td> <td>flex item在cross轴方向以开始方向对齐</td></tr> <tr><td>flex-end</td> <td>flex item在cross轴方向以结尾方向对齐</td></tr> <tr><td>center</td> <td>flex item在cross轴方向居中对齐（该属性值能很方便地让元素在容器内垂直居中对齐）</td></tr> <tr><td>baseline</td> <td>flex item在cross轴方向以其文本的基准线对齐</td></tr> <tr><td>stretch</td> <td>flex item在cross轴方向填满整个容器（当固定尺寸的时候该属性不生效）</td></tr></tbody></table> <p><strong>align-content</strong></p> <p>当伸缩容器的侧轴还有多余空间时，<code>align-content</code>属性可以用来调准伸缩行在伸缩容器里的对齐方式，这与调准伸缩项目在主轴上对齐方式的<code>justify-content</code>属性类似。</p> <table><thead><tr><th>props</th> <th>description</th></tr></thead> <tbody><tr><td>flex-start</td> <td>各行向伸缩容器的起点位置堆叠。伸缩容器中第一行在侧轴起点的边会紧靠住伸缩容器在侧轴起点的边，之后的每一行都紧靠住前面一行。</td></tr> <tr><td>flex-end</td> <td>各行向伸缩容器的结束位置堆叠。伸缩容器中最后一行在侧轴终点的边会紧靠住该伸缩容器在侧轴终点的边，之前的每一行都紧靠住后面一行。</td></tr> <tr><td>center</td> <td>各行向伸缩容器的中间位置堆叠。各行两两紧靠住同时在伸缩容器中居中对齐，保持伸缩容器在侧轴起点边的内容边和第一行之间的距离与该容器在侧轴终点边的内容边与第最后一行之间的距离相等。（如果剩下的空间是负数，则行的堆叠会向两个方向溢出的相等距离）</td></tr> <tr><td>space-between</td> <td>各行在伸缩容器中平均分布。如果剩余的空间是负数或伸缩容器中只有一行，该值等效于<code>flex-start</code>。在其它情况下，第一行在侧轴起点的边会紧靠住伸缩容器在侧轴起点边的内容边，最后一行在侧轴终点的边会紧靠住伸缩容器在侧轴终点的内容边，剩余的行在保持两两之间的空间相等的状况下排列。</td></tr> <tr><td>space-around</td> <td>各行在伸缩容器中平均分布，在两边各有一半的空间。如果剩余的空间是负数或伸缩容器中只有一行，该值等效于<code>center</code>。在其它情况下，各行会在保持两两之间的空间相等，同时第一行前面及最后一行后面的空间是其他空间的一半的状况下排列。</td></tr> <tr><td>stretch</td> <td>各行将会伸展以占用剩余的空间。如果剩余的空间是负数，该值等效于<code>flex-start</code>。在其它情况下，剩余空间被所有行平分，扩大各行的侧轴尺寸。</td></tr></tbody></table> <blockquote><p>只有多行的伸缩容器才会在侧轴上有多余的空间以供对齐，因为仅包含一行的伸缩容器中，唯一的一行会自动伸展填充全部的空间。著作权归作者所有。</p></blockquote> <h4 id="_2-元素属性"><a href="#_2-元素属性" class="header-anchor">#</a> 2. 元素属性</h4> <p><strong>order</strong></p> <p>该属性用于flex item相对于兄弟元素的排序，其接收一个整数值（负数也生效），数值越小，排序越前</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token property">order</span><span class="token punctuation">:</span> &lt;integer&gt;
+</code></pre></div><p><strong>flex-grow</strong></p> <p>该属性定义了flex item在有需要的时候进行尺寸扩展，接收一个无单位的数值作为比例（负数值无效），其决定了该flex item占用多少容器内可用的空间。</p> <p>比如，当所有的flex item都是设置了该属性为1的时候，容器内剩余的可用空间就平分给每个flex item，当某个flex item的flex-grow值为2的时候，该flex item就占用两倍于其他flex item的可用空间。</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token property">flex-grow</span><span class="token punctuation">:</span> &lt;number&gt; <span class="token comment">/* default 0*/</span>
+</code></pre></div><p><strong>flex-shrink</strong></p> <p>该属性定义了该flex item在必要时候的收缩属性，跟flex-grow的效果相反，使用方法一致，负数值无效</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token property">flex-shrink</span><span class="token punctuation">:</span> &lt;number&gt;<span class="token comment">/* default 1*/</span>
+</code></pre></div><p><strong>flex-basis</strong></p> <p>定义该flex item默认的初始尺寸，它可以是一个长度值也可以是一个关键词，跟width和height属性相同，用来指定子项初始的尺寸值。</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token property">flex-basis</span><span class="token punctuation">:</span> &lt;length&gt; | auto <span class="token comment">/* default auto*/</span>
+</code></pre></div><p><strong>flex</strong></p> <p>该属性是flex-grow,，flex-shrink，flex-basis三个值的简写方式，默认值为0 1 auto，其中第二三个属性flex-shrink和flex-basis值是可选的：</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token property">flex</span><span class="token punctuation">:</span> none | [ &lt;flex-grow&gt; &lt;flex-shrink&gt;? || &lt;flex-basis&gt; ]
+</code></pre></div><blockquote><p>如果flex取值为none时，其相当于取值为0 0 auto</p></blockquote> <p><strong>align-self</strong></p> <p>对比align-items属性，我们知道这个是针对某个flex item在cross axis方向的对齐方式定义，该属性可以覆盖对容器上定义的align-items属性</p> <table><thead><tr><th>props</th> <th>description</th></tr></thead> <tbody><tr><td>flex-start</td> <td>伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起始的边。</td></tr> <tr><td>flex-end</td> <td>伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边 。</td></tr> <tr><td>center</td> <td>伸缩项目的外边距盒在该行的侧轴上居中放置。（如果伸缩行的尺寸小于伸缩项目，则伸缩项目会向两个方向溢出相同的量）。</td></tr> <tr><td>baseline</td> <td>如果伸缩项目的行内轴与侧轴为同一条，则该值和<code>flex-start</code>等效。其它情况下，该值将参与基线对齐。所有参与该对齐方式的伸缩项目将按下列方式排列：首先将这些伸缩项目的基线进行对齐，随后其中基线至侧轴起点边的外边距距离最长的那个项目将紧靠住该行在侧轴起点的边。</td></tr> <tr><td>stretch</td> <td>如果侧轴长度属性的值为<code>auto</code>，则此值会使项目的外边距盒的尺寸在遵照<code>min/max-width/height</code>属性的限制下尽可能接近所在行的尺寸。</td></tr></tbody></table> <h3 id="浏览器支持"><a href="#浏览器支持" class="header-anchor">#</a> 浏览器支持</h3> <p>在移动端由于新语法还没完全确定，所以flexbox语法一些设备并不完全支持。</p> <p>兼容性可以查询下 caniuse 网站：</p> <p><img src="http://other-1251009253.file.myqcloud.com/for20171107/flexbox_caniuse.png" alt="来自 https://caniuse.com/#search=flex"></p> <p>目前flexbox规范浏览器支持情况如下：</p> <blockquote><p>Chrome 29+
+Firefox 28+
+Internet Explorer 11+
+Opera 17+
+Safari 6.1+ (prefixed with -webkit-)
+Android 4.4+
+iOS 7.1+ (prefixed with -webkit-)</p></blockquote> <h4 id="怎么兼容"><a href="#怎么兼容" class="header-anchor">#</a> 怎么兼容</h4> <ol><li>使用 autoprefixer 处理浏览器前缀</li></ol> <p>浏览器厂商以前就一直在实施CSS3，但它还未成为真正的标准，当一些CSS3样式语法还存在波动时，它们提供针对浏览器的前缀。</p> <p>在使用构建工具，像fis, gulp, webpack的时候，可以使用autoprefixer模块，配合 post-css 使用，以 fis 举例：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// fis 匹配到所有css, less, scss文件，在预处理阶段，调用autoprefixer插件，</span>
+<span class="token comment">// 将新的css特性语法尽可能的降级处理到可以支持市面上所占份额大于5%的浏览器</span>
+fis<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token string">'*.{css,less,scss}'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+	preprocessor<span class="token operator">:</span> fis<span class="token punctuation">.</span><span class="token function">plugin</span><span class="token punctuation">(</span><span class="token string">&quot;autoprefixer&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+		<span class="token string">&quot;browsers&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;&gt; 5%&quot;</span><span class="token punctuation">]</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><ol start="2"><li>使用旧版本的box布局，可以配合less, sass之类的预处理器使用：</li></ol> <div class="language-less extra-class"><pre class="language-less"><code><span class="token selector">.box()</span><span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span><span class="token operator">-</span>webkit<span class="token operator">-</span>box<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span><span class="token operator">-</span>moz<span class="token operator">-</span>box<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.box-align(<span class="token variable">@arg</span>)</span><span class="token punctuation">{</span>
+  <span class="token property">-webkit-box-align</span><span class="token punctuation">:</span> <span class="token variable">@arg</span><span class="token punctuation">;</span>
+  <span class="token property">-moz-box-align</span><span class="token punctuation">:</span> <span class="token variable">@arg</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.box-pack(<span class="token variable">@arg</span>)</span><span class="token punctuation">{</span>
+  <span class="token property">-webkit-box-pack</span><span class="token punctuation">:</span> <span class="token variable">@arg</span><span class="token punctuation">;</span>
+  <span class="token property">-moz-box-pack</span><span class="token punctuation">:</span> <span class="token variable">@arg</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.box-orient(<span class="token variable">@arg</span>)</span><span class="token punctuation">{</span>
+  <span class="token property">-webkit-box-orient</span><span class="token punctuation">:</span> <span class="token variable">@arg</span><span class="token punctuation">;</span>
+  <span class="token property">-moz-box-orient</span><span class="token punctuation">:</span> <span class="token variable">@arg</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.box-flex(<span class="token variable">@arg</span>)</span><span class="token punctuation">{</span>
+  <span class="token property">-moz-box-flex</span><span class="token punctuation">:</span> <span class="token variable">@arg</span><span class="token punctuation">;</span>
+  <span class="token property">-webkit-box-flex</span><span class="token punctuation">:</span> <span class="token variable">@arg</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.box-flex(<span class="token variable">@arg</span>)</span><span class="token punctuation">{</span>
+  <span class="token property">-moz-box-flex</span><span class="token punctuation">:</span> <span class="token variable">@arg</span><span class="token punctuation">;</span>
+  <span class="token property">-webkit-box-flex</span><span class="token punctuation">:</span> <span class="token variable">@arg</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="三、flexbox布局实践"><a href="#三、flexbox布局实践" class="header-anchor">#</a> 三、flexbox布局实践</h2> <p>认识到flexbox布局之后，是不是已经迫不及待想要应用到项目中去了？</p> <p>现在，让我们手持flexbox这柄利器，开始布局圣战！从零搭建一个简洁的个人博客网站。</p> <h3 id="规划"><a href="#规划" class="header-anchor">#</a> 规划</h3> <p><img src="http://other-1251009253.file.myqcloud.com/for20171107/Blog-struct.png" alt="http://other-1251009253.file.myqcloud.com/for20171107/Blog-struct.png"></p> <p>一个常规的Blog，主要包含文章列表页和文章详情页，常见的结构是页头作为导航，底部作为版权或者其他。</p> <p>设计上，我们崇尚扁平化的极简风格，在极简的UI框架wing.css我们稍作改造以便适应我们网站所需要的风格。</p> <p>技术选欣上，我们采用media query来做响应式，兼容各种移动设备，用CSS rem单位来覆盖浏览器默认样式。</p> <p>目录组织上，我们约定用经典的 css + img + js 行为、表现，结构分离的形式。</p> <p>样式书写过程中，尽可能的遵循OOCSS规范，做到简单、可维护以及高复用。</p> <p>另外，考虑非现代浏览器对flexbox完全不支持，这里我们就不考虑旧版浏览器兼容性了，推荐用chrome访问。</p> <h3 id="hello-world"><a href="#hello-world" class="header-anchor">#</a> Hello World</h3> <h4 id="结构层"><a href="#结构层" class="header-anchor">#</a> 结构层</h4> <p>整站采用 utf-8 国际编码，在meta 头，统一所有浏览器的视口</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>viewport<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>导航栏，使用html5的 nav 标签，大体内容如下：</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>nav<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>#<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>nav-logo<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>logo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>index.html<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>nav-item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>about.html<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>nav-item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>About<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>#<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>nav-item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>More<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>页面底部，使用 footer标签：</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h5</span><span class="token punctuation">&gt;</span></span>copyright 2017<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h5</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>footer</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>组件容器，用 section 标签包裹，80%宽度，使其居中：</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>content center<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	some code ...		
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>列表卡片，单个卡片作为一个flex item，其父元素作为flex container</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>card<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h5</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>card-header<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h5</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>card-body<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>something...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>card-footer center text-center<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>#<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>article detail link<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h4 id="表现层"><a href="#表现层" class="header-anchor">#</a> 表现层</h4> <p>我们先用统一一下font-size和浏览器各个标签控件的默认样式：</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">*</span> <span class="token punctuation">{</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">html,
+body</span> <span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">body</span> <span class="token punctuation">{</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 1.6<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #111<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 1rem<span class="token punctuation">;</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> 400<span class="token punctuation">;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> -apple-system<span class="token punctuation">,</span> BlinkMacSystemFont<span class="token punctuation">,</span> Avenir<span class="token punctuation">,</span> <span class="token string">&quot;Avenir Next&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Segoe UI&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Roboto&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Oxygen&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Ubuntu&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Cantarell&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Fira Sans&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Droid Sans&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Helvetica Neue&quot;</span><span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">...
+
+.row</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">flex-flow</span><span class="token punctuation">:</span> row wrap<span class="token punctuation">;</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> space-between<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">...
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p</span> <span class="token punctuation">{</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> -apple-system<span class="token punctuation">,</span> BlinkMacSystemFont<span class="token punctuation">,</span> Avenir<span class="token punctuation">,</span> <span class="token string">&quot;Avenir Next&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Segoe UI&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Roboto&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Oxygen&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Ubuntu&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Cantarell&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Fira Sans&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Droid Sans&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Helvetica Neue&quot;</span><span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">h1,
+h2,
+h3,
+h4,
+h5,
+h6</span> <span class="token punctuation">{</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> 500<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">h1</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 2.986rem<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 1.2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">h2</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 2.488rem<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 1.25<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">h3</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 2.074rem<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 1.3<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">h4</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 1.728rem<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 1.35<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">h5</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 1.44rem<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 1.5<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">h6</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 1.2rem<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 1.6<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">p</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 1rem<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>再针对移动设备作响应式处理：</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 768px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token selector">h1</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 2.027rem<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">h2</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 1.802rem<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">h3</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 1.602rem<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">h4</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 1.424rem<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">h5</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 1.266rem<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">h6</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 1.125rem<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>有了以上样式作为全局样式基础，再针对页面业务来单独定制样式，页面主要以flexbox为主：</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.content</span> <span class="token punctuation">{</span>
+	<span class="token property">width</span><span class="token punctuation">:</span> 80%<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 0 auto<span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">......
+
+.article &gt; p</span> <span class="token punctuation">{</span>
+	<span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>更多内容请参照源码 ./resource/css/**.css</p> <p>之后，可以开始收集素材资料，为我们的页面填充内容，时刻记住：内容为王。</p> <p>最终效果，可以直接浏览 xxx
+源码可参见 xxx</p> <h2 id="四、总结"><a href="#四、总结" class="header-anchor">#</a> 四、总结</h2> <h2 id="参考文献"><a href="#参考文献" class="header-anchor">#</a> 参考文献</h2> <p>https://segmentfault.com/a/1190000004070556</p> <p>https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox</p> <p>https://developer.mozilla.org/en-US/docs/Web/CSS/flex</p> <p>https://github.com/ohansemmanuel/Understanding-Flexbox</p> <p>http://the-echoplex.net/flexyboxes/</p> <p>http://www.w3cplus.com/css3/a-guide-to-flexbox-new.html</p> <p>http://www.w3cplus.com/css3/flexbox-adventures.html</p> <p>http://www.xiaoxiangzi.com/Programme/CSS/2540.html</p> <p>https://juejin.im/post/58e3a5a0a0bb9f0069fc16bb</p> <p>http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</p> <p>https://segmentfault.com/a/1190000002490633</p> <p>https://chriswrightdesign.com/experiments/flexbox-adventures/</p> <p>https://www.w3.org/html/ig/zh/css-flex-1/</p> <p>https://www.w3.org/TR/css-flexbox/#box-model</p> <p>https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties</p> <p>https://css-tricks.com/snippets/css/a-guide-to-flexbox/</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Develop/2-CSS/share/flexbox指南.html" class="prev">
+        flexbox 指南
+      </a></span> <span class="next"><a href="/Develop/3-ES5/standard.html">
+        规范
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.67496c89.js" defer></script><script src="/assets/js/3.cf7a9944.js" defer></script><script src="/assets/js/64.cb59af98.js" defer></script><script src="/assets/js/12.94a768b4.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>网页端字体加载优化 | FrontEnd Docs</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/logo.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="前端绿书">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="preload" href="/assets/css/0.styles.c1486ec1.css" as="style"><link rel="preload" href="/assets/js/app.67496c89.js" as="script"><link rel="preload" href="/assets/js/3.cf7a9944.js" as="script"><link rel="preload" href="/assets/js/26.4fc702b1.js" as="script"><link rel="preload" href="/assets/js/12.94a768b4.js" as="script"><link rel="prefetch" href="/assets/js/10.72dd51a9.js"><link rel="prefetch" href="/assets/js/100.98c6437a.js"><link rel="prefetch" href="/assets/js/101.eb45a818.js"><link rel="prefetch" href="/assets/js/102.c8059a23.js"><link rel="prefetch" href="/assets/js/103.719a7352.js"><link rel="prefetch" href="/assets/js/104.bb5c0626.js"><link rel="prefetch" href="/assets/js/105.d56b10e7.js"><link rel="prefetch" href="/assets/js/106.ee13bfe6.js"><link rel="prefetch" href="/assets/js/107.beb2f5d5.js"><link rel="prefetch" href="/assets/js/108.ec980ce3.js"><link rel="prefetch" href="/assets/js/109.7fb0fb3c.js"><link rel="prefetch" href="/assets/js/11.a9a74280.js"><link rel="prefetch" href="/assets/js/110.7fa66a00.js"><link rel="prefetch" href="/assets/js/111.9d3ab7f2.js"><link rel="prefetch" href="/assets/js/112.5c7b26a4.js"><link rel="prefetch" href="/assets/js/113.b222d8dd.js"><link rel="prefetch" href="/assets/js/114.94a7e36e.js"><link rel="prefetch" href="/assets/js/115.90a5ee34.js"><link rel="prefetch" href="/assets/js/116.45f014b1.js"><link rel="prefetch" href="/assets/js/117.aaeadc9a.js"><link rel="prefetch" href="/assets/js/118.123a5bb8.js"><link rel="prefetch" href="/assets/js/119.bf94e0aa.js"><link rel="prefetch" href="/assets/js/120.918a8a4c.js"><link rel="prefetch" href="/assets/js/121.6791fa17.js"><link rel="prefetch" href="/assets/js/122.5fae21f2.js"><link rel="prefetch" href="/assets/js/123.0ff6ef7f.js"><link rel="prefetch" href="/assets/js/124.4f076072.js"><link rel="prefetch" href="/assets/js/125.3b628c2c.js"><link rel="prefetch" href="/assets/js/126.47f80e59.js"><link rel="prefetch" href="/assets/js/127.d6e2375f.js"><link rel="prefetch" href="/assets/js/128.b1c16eb7.js"><link rel="prefetch" href="/assets/js/129.ddcee480.js"><link rel="prefetch" href="/assets/js/13.3f4b963d.js"><link rel="prefetch" href="/assets/js/130.259325dd.js"><link rel="prefetch" href="/assets/js/131.420db52f.js"><link rel="prefetch" href="/assets/js/132.08de9589.js"><link rel="prefetch" href="/assets/js/133.369f5900.js"><link rel="prefetch" href="/assets/js/134.60597180.js"><link rel="prefetch" href="/assets/js/135.5d6e8d4f.js"><link rel="prefetch" href="/assets/js/136.fc4795d9.js"><link rel="prefetch" href="/assets/js/137.fe293f5c.js"><link rel="prefetch" href="/assets/js/138.bdf26548.js"><link rel="prefetch" href="/assets/js/139.de2ce565.js"><link rel="prefetch" href="/assets/js/14.c419df94.js"><link rel="prefetch" href="/assets/js/140.ac48cdb4.js"><link rel="prefetch" href="/assets/js/141.b53c7064.js"><link rel="prefetch" href="/assets/js/142.190e982d.js"><link rel="prefetch" href="/assets/js/143.9330f378.js"><link rel="prefetch" href="/assets/js/144.75d77e3b.js"><link rel="prefetch" href="/assets/js/145.859b1115.js"><link rel="prefetch" href="/assets/js/146.fd421688.js"><link rel="prefetch" href="/assets/js/147.71cb52f1.js"><link rel="prefetch" href="/assets/js/148.8184946a.js"><link rel="prefetch" href="/assets/js/149.08f45cb6.js"><link rel="prefetch" href="/assets/js/15.6bde15d0.js"><link rel="prefetch" href="/assets/js/150.2dbd76ae.js"><link rel="prefetch" href="/assets/js/151.63d79f79.js"><link rel="prefetch" href="/assets/js/152.165e84ed.js"><link rel="prefetch" href="/assets/js/153.3a77aa03.js"><link rel="prefetch" href="/assets/js/154.03cccc6b.js"><link rel="prefetch" href="/assets/js/155.954bec1c.js"><link rel="prefetch" href="/assets/js/156.2d0b239b.js"><link rel="prefetch" href="/assets/js/157.b84b94c3.js"><link rel="prefetch" href="/assets/js/158.965c0bf4.js"><link rel="prefetch" href="/assets/js/159.0df6270d.js"><link rel="prefetch" href="/assets/js/16.f64b5708.js"><link rel="prefetch" href="/assets/js/160.1f01d1f1.js"><link rel="prefetch" href="/assets/js/161.bb5365ac.js"><link rel="prefetch" href="/assets/js/162.c11c02c5.js"><link rel="prefetch" href="/assets/js/163.0e36a992.js"><link rel="prefetch" href="/assets/js/164.d0be1d0a.js"><link rel="prefetch" href="/assets/js/165.a996c12e.js"><link rel="prefetch" href="/assets/js/166.04d8b4cd.js"><link rel="prefetch" href="/assets/js/167.5a52dd8c.js"><link rel="prefetch" href="/assets/js/168.6243335c.js"><link rel="prefetch" href="/assets/js/169.f7db8c31.js"><link rel="prefetch" href="/assets/js/17.ec50c2e8.js"><link rel="prefetch" href="/assets/js/18.7e5c0d96.js"><link rel="prefetch" href="/assets/js/19.22328a07.js"><link rel="prefetch" href="/assets/js/20.d1f009d8.js"><link rel="prefetch" href="/assets/js/21.31b999e5.js"><link rel="prefetch" href="/assets/js/22.94a80e87.js"><link rel="prefetch" href="/assets/js/23.c6a77eaa.js"><link rel="prefetch" href="/assets/js/24.6b022e3d.js"><link rel="prefetch" href="/assets/js/25.3ea7d7a5.js"><link rel="prefetch" href="/assets/js/27.ae18b4c5.js"><link rel="prefetch" href="/assets/js/28.509e8e1c.js"><link rel="prefetch" href="/assets/js/29.2f2dbcec.js"><link rel="prefetch" href="/assets/js/30.285d2cdc.js"><link rel="prefetch" href="/assets/js/31.78ed841d.js"><link rel="prefetch" href="/assets/js/32.668dd221.js"><link rel="prefetch" href="/assets/js/33.e994e75a.js"><link rel="prefetch" href="/assets/js/34.f45db2b5.js"><link rel="prefetch" href="/assets/js/35.90131936.js"><link rel="prefetch" href="/assets/js/36.e484cdd8.js"><link rel="prefetch" href="/assets/js/37.0dc73f95.js"><link rel="prefetch" href="/assets/js/38.94c002c9.js"><link rel="prefetch" href="/assets/js/39.25b893af.js"><link rel="prefetch" href="/assets/js/4.2f1119d0.js"><link rel="prefetch" href="/assets/js/40.b52df712.js"><link rel="prefetch" href="/assets/js/41.86f1e893.js"><link rel="prefetch" href="/assets/js/42.aabc3fb9.js"><link rel="prefetch" href="/assets/js/43.929d84fe.js"><link rel="prefetch" href="/assets/js/44.35fdd5c1.js"><link rel="prefetch" href="/assets/js/45.ede220bf.js"><link rel="prefetch" href="/assets/js/46.09e63517.js"><link rel="prefetch" href="/assets/js/47.8eec2110.js"><link rel="prefetch" href="/assets/js/48.19ddf9c0.js"><link rel="prefetch" href="/assets/js/49.c00546d1.js"><link rel="prefetch" href="/assets/js/5.48085d33.js"><link rel="prefetch" href="/assets/js/50.9b8689db.js"><link rel="prefetch" href="/assets/js/51.5dd466df.js"><link rel="prefetch" href="/assets/js/52.9cb4bcd5.js"><link rel="prefetch" href="/assets/js/53.9bd1ce7a.js"><link rel="prefetch" href="/assets/js/54.003b9d7f.js"><link rel="prefetch" href="/assets/js/55.2d7fc27b.js"><link rel="prefetch" href="/assets/js/56.56f6b85a.js"><link rel="prefetch" href="/assets/js/57.74d54da1.js"><link rel="prefetch" href="/assets/js/58.8815e01d.js"><link rel="prefetch" href="/assets/js/59.c7420375.js"><link rel="prefetch" href="/assets/js/6.d8f8d980.js"><link rel="prefetch" href="/assets/js/60.ccd9357e.js"><link rel="prefetch" href="/assets/js/61.6a22933e.js"><link rel="prefetch" href="/assets/js/62.1d72f48f.js"><link rel="prefetch" href="/assets/js/63.59f63f00.js"><link rel="prefetch" href="/assets/js/64.cb59af98.js"><link rel="prefetch" href="/assets/js/65.64418aac.js"><link rel="prefetch" href="/assets/js/66.2cb00529.js"><link rel="prefetch" href="/assets/js/67.08980ba0.js"><link rel="prefetch" href="/assets/js/68.cdd0269c.js"><link rel="prefetch" href="/assets/js/69.a861ad80.js"><link rel="prefetch" href="/assets/js/7.f8e9d384.js"><link rel="prefetch" href="/assets/js/70.09840999.js"><link rel="prefetch" href="/assets/js/71.44a5a193.js"><link rel="prefetch" href="/assets/js/72.2d132b64.js"><link rel="prefetch" href="/assets/js/73.7ef286d2.js"><link rel="prefetch" href="/assets/js/74.07bf8129.js"><link rel="prefetch" href="/assets/js/75.90fe3ca7.js"><link rel="prefetch" href="/assets/js/76.56c2c99a.js"><link rel="prefetch" href="/assets/js/77.af57fbbf.js"><link rel="prefetch" href="/assets/js/78.7c8a06ff.js"><link rel="prefetch" href="/assets/js/79.fe7ea232.js"><link rel="prefetch" href="/assets/js/8.0852472a.js"><link rel="prefetch" href="/assets/js/80.34c69a2e.js"><link rel="prefetch" href="/assets/js/81.0a6b3334.js"><link rel="prefetch" href="/assets/js/82.d2ea377d.js"><link rel="prefetch" href="/assets/js/83.a2385caa.js"><link rel="prefetch" href="/assets/js/84.31ceb4a2.js"><link rel="prefetch" href="/assets/js/85.9a3c6911.js"><link rel="prefetch" href="/assets/js/86.a2dd891d.js"><link rel="prefetch" href="/assets/js/87.f66f4793.js"><link rel="prefetch" href="/assets/js/88.597c0c7b.js"><link rel="prefetch" href="/assets/js/89.49025ed1.js"><link rel="prefetch" href="/assets/js/9.fd9e5888.js"><link rel="prefetch" href="/assets/js/90.c41cf32e.js"><link rel="prefetch" href="/assets/js/91.0ed38cd2.js"><link rel="prefetch" href="/assets/js/92.b45d23a4.js"><link rel="prefetch" href="/assets/js/93.5395792e.js"><link rel="prefetch" href="/assets/js/94.70f92ca6.js"><link rel="prefetch" href="/assets/js/95.046c7977.js"><link rel="prefetch" href="/assets/js/96.10714986.js"><link rel="prefetch" href="/assets/js/97.d59afd13.js"><link rel="prefetch" href="/assets/js/98.037e0ea9.js"><link rel="prefetch" href="/assets/js/99.cbd43b24.js"><link rel="prefetch" href="/assets/js/vendors~notification.2df74b03.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c1486ec1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">FrontEnd Docs</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Develop/" class="nav-link">
+  工程开发
+</a></div><div class="nav-item"><a href="/Client/" class="nav-link router-link-active">
+  端技术
+</a></div><div class="nav-item"><a href="/Engineering/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/Graphical/" class="nav-link">
+  图形技术
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多专题" class="dropdown-title"><span class="title">更多专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          中台
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/SSR/start.html" class="nav-link">
+  SSR
+</a></li><li class="dropdown-subitem"><a href="/Node/start.html" class="nav-link">
+  Node
+</a></li><li class="dropdown-subitem"><a href="/Middleware/start.html" class="nav-link">
+  中间件
+</a></li><li class="dropdown-subitem"><a href="/MicroFrontend/start.html" class="nav-link">
+  微前端
+</a></li><li class="dropdown-subitem"><a href="/Serverless/start.html" class="nav-link">
+  Serverless
+</a></li></ul></li><li class="dropdown-item"><h4>
+          媒体技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Audio/start.html" class="nav-link">
+  音频
+</a></li><li class="dropdown-subitem"><a href="/Video/start.html" class="nav-link">
+  视频
+</a></li></ul></li><li class="dropdown-item"><h4>
+          跨端技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Flutter/start.html" class="nav-link">
+  Flutter
+</a></li><li class="dropdown-subitem"><a href="/PWA/start.html" class="nav-link">
+  PWA
+</a></li><li class="dropdown-subitem"><a href="/React-Native/start.html" class="nav-link">
+  React-Native
+</a></li></ul></li><li class="dropdown-item"><h4>
+          编程思想
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/FrameworkDesign/start.html" class="nav-link">
+  框架设计
+</a></li><li class="dropdown-subitem"><a href="/DesignPattern/start.html" class="nav-link">
+  设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          底层原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/V8/start.html" class="nav-link">
+  V8
+</a></li><li class="dropdown-subitem"><a href="/Webkit/start.html" class="nav-link">
+  webkit
+</a></li><li class="dropdown-subitem"><a href="/VirtualDOM/start.html" class="nav-link">
+  virtual DOM
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Develop/" class="nav-link">
+  工程开发
+</a></div><div class="nav-item"><a href="/Client/" class="nav-link router-link-active">
+  端技术
+</a></div><div class="nav-item"><a href="/Engineering/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/Graphical/" class="nav-link">
+  图形技术
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多专题" class="dropdown-title"><span class="title">更多专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          中台
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/SSR/start.html" class="nav-link">
+  SSR
+</a></li><li class="dropdown-subitem"><a href="/Node/start.html" class="nav-link">
+  Node
+</a></li><li class="dropdown-subitem"><a href="/Middleware/start.html" class="nav-link">
+  中间件
+</a></li><li class="dropdown-subitem"><a href="/MicroFrontend/start.html" class="nav-link">
+  微前端
+</a></li><li class="dropdown-subitem"><a href="/Serverless/start.html" class="nav-link">
+  Serverless
+</a></li></ul></li><li class="dropdown-item"><h4>
+          媒体技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Audio/start.html" class="nav-link">
+  音频
+</a></li><li class="dropdown-subitem"><a href="/Video/start.html" class="nav-link">
+  视频
+</a></li></ul></li><li class="dropdown-item"><h4>
+          跨端技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Flutter/start.html" class="nav-link">
+  Flutter
+</a></li><li class="dropdown-subitem"><a href="/PWA/start.html" class="nav-link">
+  PWA
+</a></li><li class="dropdown-subitem"><a href="/React-Native/start.html" class="nav-link">
+  React-Native
+</a></li></ul></li><li class="dropdown-item"><h4>
+          编程思想
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/FrameworkDesign/start.html" class="nav-link">
+  框架设计
+</a></li><li class="dropdown-subitem"><a href="/DesignPattern/start.html" class="nav-link">
+  设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          底层原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/V8/start.html" class="nav-link">
+  V8
+</a></li><li class="dropdown-subitem"><a href="/Webkit/start.html" class="nav-link">
+  webkit
+</a></li><li class="dropdown-subitem"><a href="/VirtualDOM/start.html" class="nav-link">
+  virtual DOM
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>PC</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Client/1-PC/standard.html" class="sidebar-link">规范</a></li><li><a href="/Client/1-PC/best-practices.html" class="sidebar-link">最佳实践</a></li><li><a href="/Client/1-PC/share/IE的hack方法.html" class="sidebar-link">IE的hack方法</a></li><li><a href="/Client/1-PC/share/搜索结果页的最佳实践.html" class="sidebar-link">搜索结果页的最佳实践 #</a></li><li><a href="/Client/1-PC/share/更好的表单设计.html" class="sidebar-link">更好的表单设计: 每一页，一件事（实例研究）</a></li><li><a href="/Client/1-PC/share/网络字体选用指南.html" class="sidebar-link">网络字体：什么时候需要，什么时候不需要</a></li><li><a href="/Client/1-PC/share/网页端字体加载优化.html" class="active sidebar-link">网页端字体加载优化</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Client/1-PC/share/网页端字体加载优化.html#基础字体加载模式" class="sidebar-link">基础字体加载模式</a></li><li class="sidebar-sub-header"><a href="/Client/1-PC/share/网页端字体加载优化.html#分组字体加载模式" class="sidebar-link">分组字体加载模式</a></li><li class="sidebar-sub-header"><a href="/Client/1-PC/share/网页端字体加载优化.html#限制字体加载时间" class="sidebar-link">限制字体加载时间</a></li><li class="sidebar-sub-header"><a href="/Client/1-PC/share/网页端字体加载优化.html#队列加载模式" class="sidebar-link">队列加载模式</a></li><li class="sidebar-sub-header"><a href="/Client/1-PC/share/网页端字体加载优化.html#自定义字体显示行为" class="sidebar-link">自定义字体显示行为</a></li><li class="sidebar-sub-header"><a href="/Client/1-PC/share/网页端字体加载优化.html#为缓存优化" class="sidebar-link">为缓存优化</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Mobile</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>小程序</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>桌面端</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>插件</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>AI</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>XR</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="网页端字体加载优化"><a href="#网页端字体加载优化" class="header-anchor">#</a> 网页端字体加载优化</h1> <p>网络字体加载看起来也许非常复杂，但如果你使用本文的字体加载模式的话，这也并不是一件复杂的事情。你可以将这些模式组合起来，创建一个兼容所有浏览器的字体加载方式。</p> <p>这些模式的代码样例都使用了 <a href="https://github.com/bramstein/fontfaceobserver" target="_blank" rel="noopener noreferrer">Font Face Observer<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，一个精简的网络字体加载器。Font Face Observer 将会根据浏览器的兼容情况使用最高效的方式来加载字体，所以这是一个非常棒的网络字体加载方式，同时你不需要为跨浏览器的兼容性而操心。</p> <ol><li><a href="#basic-font-loading">基础字体加载模式</a></li> <li><a href="#loading-groups-of-fonts">分组字体加载模式</a></li> <li><a href="#loading-fonts-with-a-timeout">限制字体加载时间</a></li> <li><a href="#prioritised-loading">队列加载模式</a></li> <li><a href="#custom-font-display">自定义字体显示行为</a></li> <li><a href="#optimise-for-caching">为缓存优化</a></li></ol> <p>不存在一种普适所有情况的单一模式。选择一种适合你自己网站的字体加载模式才是最好的。</p> <h2 id="基础字体加载模式"><a href="#基础字体加载模式" class="header-anchor">#</a> <a href="#basic-font-loading"></a>基础字体加载模式</h2> <p>Font Face Observer 使用一种基于 Promise（译者注：Promise 对象是用于进行延迟或者异步运算的，一个 Promise 代表一个尚未执行，但是将会执行的操作） 的接口来提供对网络字体加载的完整控制。你字体放在哪里并不重要：你可以自行放置，也可以使用 <a href="http://www.google.com/fonts" target="_blank" rel="noopener noreferrer">Google Fonts<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>、<a href="http://typekit.com/" target="_blank" rel="noopener noreferrer">Typekit<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>、<a href="https://fonts.com/" target="_blank" rel="noopener noreferrer">Fonts.com<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>、<a href="http://webtype.com/" target="_blank" rel="noopener noreferrer">Webtype<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 等服务。</p> <p>为了保持模式示例的精简，这篇文章假设你将网络字体放在自己的服务器上。这意味着你的 CSS 文件中应该有一个或多个 <code>@font-face</code> 来定义你希望通过 Font Face Observer 加载的字体。为了简洁，<code>@font-face</code> 不会出现在所有的模式中，但是你应该假设它们存在。</p> <div class="language- extra-class"><pre><code>@font-face {
+  font-family: Output Sans;
+  src: url(output-sans.woff2) format(&quot;woff2&quot;),
+       url(output-sans.woff) format(&quot;woff&quot;);
+}
+</code></pre></div><p>最基础的模式就是加载一个或多个独立的字体。你可以通过为每个字体创建一个单独的 <code>FontFaceObserver</code> 实例，并调用它们的 <code>load</code> 方法来实现。</p> <div class="language- extra-class"><pre><code>var output = new FontFaceObserver('Output Sans');
+var input = new FontFaceObserver('Input Mono');
+
+output.load().then(function () {
+  console.log('Output Sans has loaded.');
+});
+
+input.load().then(function () {
+  console.log('Input Mono has loaded.');
+});
+</code></pre></div><p>通过这种方式，每个网络字体将会被独立加载，这在字体间没有依赖关系且应该渐进渲染（即在加载完成后就渲染）时非常有用。与 <a href="https://www.w3.org/TR/css-font-loading/" target="_blank" rel="noopener noreferrer">原生字体加载接口<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 不同，你不需要将字体的 URL 传递给 Font Face Observer，它会使用 CSS 文件中已经定义的 <code>@font-face</code> 规则来加载字体。这样你就可以在使用 JavaScript 手动加载字体的同时，还能优雅降级到利用 CSS 的实现。</p> <h2 id="分组字体加载模式"><a href="#分组字体加载模式" class="header-anchor">#</a> <a href="#loading-groups-of-fonts"></a>分组字体加载模式</h2> <p>你也可以在加载多个字体的时候将它们分组：一个组内的字体只能全部加载成功或是全部加载失败。如果你加载的字体文件属于同一个字体族，且你希望仅在它们全部加载成功时才进行渲染，那么这种方式将会非常实用。这可以阻止浏览器在没能成功加载整个字体族时渲染出糟糕的网页。</p> <div class="language- extra-class"><pre><code>var normal = new FontFaceObserver('Output Sans');
+var italic = new FontFaceObserver('Output Sans', {
+  style: 'italic'
+});
+
+Promise.all([
+  normal.load(),
+  italic.load()
+]).then(function () {
+  console.log('Output Sans family has loaded.');
+});
+</code></pre></div><p>你可以使用 <code>Promise.all</code> 来对字体进行分组。只有在所有字体都成功加载后 Promise 才会被解析，一旦有某个字体加载失败，Promise 就会被拒绝。</p> <p>将字体分组的另一个用途是减少页面布局的重新计算渲染。如果你逐步加载和渲染所有字体，浏览器将会因为网络字体和降级字体之间不同的尺寸而多次重新计算布局。将字体分组可以把多次计算布局优化为一次。</p> <h2 id="限制字体加载时间"><a href="#限制字体加载时间" class="header-anchor">#</a> <a href="#loading-fonts-with-a-timeout"></a>限制字体加载时间</h2> <p>有些时候字体需要很长时间来加载，但由于字体通常是用于渲染网站的主要内容——文字，长时间的加载就会造成问题。无限制地等待一个字体的加载是不可接受的。你可以通过向字体加载添加一个计时器来解决这个问题。</p> <p>如下的辅助函数创建了一个计时器，超时后会返回一个被拒绝的 Promise.</p> <div class="language- extra-class"><pre><code>function timer(time) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(reject, time);
+  });
+}
+</code></pre></div><p>通过使用 <code>Promise.race</code>，我们可以让字体加载和计时器“竞速”。举个例子，如果字体在计时器触发前加载完成，字体就胜利了，Promise 将会被解析。如果计时器在字体加载完成前触发，Promise 就会被拒绝。</p> <div class="language- extra-class"><pre><code>var font = new FontFaceObserver('Output Sans');
+
+Promise.race([
+  timer(1000),
+  font.load()
+]).then(function () {
+  console.log('Output Sans has loaded.');
+}).catch(function () {
+  console.log('Output Sans has timed out.');
+});
+</code></pre></div><p>在这个例子中，字体与一个1秒的计时器竞速。除了与单个字体竞速，计时器还可以与一组字体竞速。这是一种简单而且有效的限制字体加载时间的方法。</p> <h2 id="队列加载模式"><a href="#队列加载模式" class="header-anchor">#</a> <a href="#prioritised-loading"></a>队列加载模式</h2> <p>通常情况下，只有部分字体对于渲染首屏内容来说是必要的。在加载其它可选字体之前先加载这些字体，将会极大程度地改善你网站的性能。你可以使用队列加载模式来实现。</p> <div class="language- extra-class"><pre><code>var primary = new FontFaceObserver('Primary');
+var secondary = new FontFaceObserver('Secondary');
+
+primary.load().then(function () {
+  console.log('Primary font has loaded.')
+
+  secondary.load().then(function () {
+    console.log('Secondary font has loaded.')
+  });
+});
+</code></pre></div><p>队列加载模式将会使次要字体依赖于主要字体。如果主要字体加载失败，次要字体将不会被加载。这会是一个非常重要的特性。</p> <p>举个例子，你可以使用队列加载模式来加载一个小的主要字体以提供有限的支持，之后再加载一个更大的次要字体来提供更多特征和样式。因为主要字体非常小，它的加载和渲染将会非常快。如果主要字体加载失败，你可能也不希望加载次要字体，因为其很可能也会加载失败。</p> <p>如果需要更详细的关于队列加载模式的信息，请参阅 Zach Leatherman 的文章 <a href="http://www.zachleat.com/web/foft/" target="_blank" rel="noopener noreferrer">Flash of Faux Text<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 以及 <a href="http://www.zachleat.com/web/web-font-data-uris/" target="_blank" rel="noopener noreferrer">Web Font Anti-Patterns: Data URIs<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p> <h2 id="自定义字体显示行为"><a href="#自定义字体显示行为" class="header-anchor">#</a> <a href="#custom-font-display"></a>自定义字体显示行为</h2> <p>浏览器显示网络字体前需要先通过网络下载字体，这通常需要一定的时间，并且不同的浏览器在下载网络字体时有不同的行为。一些浏览器在加载字体时隐藏文字，而另一些浏览器会先显示降级字体。这两种方法通常被称为 Flash Of Invisible Text（FOIT）和 Flash Of Unstyled Text（FOUT）。</p> <p><img src="http://ww1.sinaimg.cn/large/a490147fgw1f3aa9x12itj21540lraf4.jpg" alt=""></p> <p>IE 和 Edge 使用 FOUT，即在网络字体加载完成之前显示降级字体。所有其他的浏览器都使用 FOIT，即在网络字体加载时隐藏文本。</p> <p>一个新的 CSS 属性 <code>font-display</code>（<a href="https://tabatkins.github.io/specs/css-font-display/" target="_blank" rel="noopener noreferrer">CSS Font Rendering Controls<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>）是用于控制这个行为的。然而，该特性依然处于开发阶段并尚未被任何浏览器支持（当前在 Chrome 和 Opera 中可以手动开启）。然而，我们可以使用 <a href="https://github.com/bramstein/fontfaceobserver" target="_blank" rel="noopener noreferrer">Font Face Observer<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 在所有的浏览器中实现相同的功能。</p> <p>你可以通过仅在字体栈中放入加载完成的字体来使得使用 FOIT 的浏览器在加载网络字体时使用降级字体渲染。如果正在下载的字体不在字体栈中，那些浏览器就不会试图隐藏文本。</p> <p>最简单的实现方法是在 <code>html</code> 元素上为三个网络字体加载状态设置不同的 class：loading（加载中），loaded（加载完成），以及 failed（加载失败）。</p> <div class="language- extra-class"><pre><code>var font = new FontFaceObserver('Output Sans');
+var html = document.documentElement;
+
+html.classList.add('fonts-loading');
+
+font.load().then(function () {
+  html.classList.remove('fonts-loading');
+  html.classList.add('fonts-loaded');
+}).catch(function () {
+  html.classList.remove('fonts-loading');
+  html.classList.add('fonts-failed');
+});
+</code></pre></div><p>使用这三个 class 和一些简单的 CSS，你就可以在所有浏览器中实现 FOUT。我们为所有将要使用网络字体的元素定义降级字体。当 <code>fonts-loaded</code> class 出现在 <code>html</code> 元素上时，我们通过改变元素的字体栈来应用网络字体。这将会要求浏览器加载网络字体，但是因为这些字体已经下载完成了，渲染操作将能在瞬间完成。</p> <div class="language- extra-class"><pre><code>body {
+  font-family: Verdana, sans-serif;
+}
+
+.fonts-loaded body {
+  font-family: Output Sans, Verdana, sans-serif;
+}
+</code></pre></div><p>使用这种方法来加载网络字体可能会让你想到渐进增强（progressive enhancement），这不是一个巧合。FOUT 就是一种渐进增强。默认的体验是使用降级字体渲染，然后使用网络字体来增强体验。</p> <p>实现 FOIT 同样简单。只要在网络字体开始加载时隐藏使用这些字体的内容，当字体加载完成后再重新显示。注意要记得处理加载失败的情况，即使网络字体加载失败，你的内容应该依然可见。</p> <div class="language- extra-class"><pre><code>.fonts-loading body {
+  visibility: hidden;
+}
+
+.fonts-loaded body,
+.fonts-failed body {
+  visibility: visible;
+}
+</code></pre></div><p>这样隐藏内容是否让你感到不适？对，隐藏内容应该在非常特殊的情况下才被使用，比如你的网络字体没有合适的降级字体，或者你知道字体已经被缓存了。</p> <h2 id="为缓存优化"><a href="#为缓存优化" class="header-anchor">#</a> <a href="#optimise-for-caching"></a>为缓存优化</h2> <p>其他的字体加载模式允许你自定义你加载字体的时间和方式。通常情况下，如果字体已经在缓存中，你会希望以不同的方式渲染字体。比如说，当字体已经被缓存时，就不需要先渲染降级字体了。我们可以通过使用 session storage 跟踪缓存情况的方式来实现。</p> <p>当一个字体被加载后，我们在 session 中创建一个布尔型标记。这个标记将会保持在整个会话过程中，所以这会是判断文件是否在浏览器缓存中的一个很好的方法。</p> <div class="language- extra-class"><pre><code>var font = new FontFaceObserver('Output Sans');
+
+font.load().then(function () {
+  sessionStorage.fontsLoaded = true;
+}).catch(function () {
+  sessionStorage.fontsLoaded = false;
+});
+</code></pre></div><p>然后你就可以使用这个信息以在字体被缓存时改变字体加载策略。比如说，你可以在 <code>head</code> 元素中插入如下的 JavaScript 片段来直接渲染网络字体。</p> <div class="language- extra-class"><pre><code>if (sessionStorage.fontsLoaded) {
+  var html = document.documentElement;
+
+  html.classList.add('fonts-loaded');
+}
+</code></pre></div><p>如果你使用这种方式加载字体，用户会在第一次访问你的网站时体验到 FOUT，但是随后的页面将会直接渲染网络字体。这样你既有渐进增强，又不会破坏重复访问者的体验。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Client/1-PC/share/网络字体选用指南.html" class="prev">
+        网络字体：什么时候需要，什么时候不需要
+      </a></span> <span class="next"><a href="/Client/2-Mobile/standard.html">
+        规范
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.67496c89.js" defer></script><script src="/assets/js/3.cf7a9944.js" defer></script><script src="/assets/js/26.4fc702b1.js" defer></script><script src="/assets/js/12.94a768b4.js" defer></script>
+  </body>
+</html>

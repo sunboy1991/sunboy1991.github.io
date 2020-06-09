@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body>
+        <div>
+            <input id="range" type="range" min="1" max="10000" value="1"/>
+            <span id="count">1</span>
+        </div>
+        
+		<script>
+            const count = document.getElementById('count')
+            const range = document.getElementById('range');
+            let total = 1;
+
+			const canvas = document.createElement("canvas");
+			canvas.width = 300;
+			canvas.height = 300;
+			canvas.style.background = "#000";
+			document.body.appendChild(canvas);
+			const gl = canvas.getContext("webgl");
+			const program = gl.createProgram();
+			const vtxShader = gl.createShader(gl.VERTEX_SHADER);
+			const fgmShader = gl.createShader(gl.FRAGMENT_SHADER);
+			gl.shaderSource(
+				vtxShader,
+                `attribute vec2 a_Position;
+                attribute vec2 a_Mouse;
+                varying float len;
+				void main(){
+                    vec2 pos = a_Position;
+                    float mouse2point_len = distance(a_Position,a_Mouse.xy);
+                    len=0.0;
+                    if(mouse2point_len<0.5){
+                        pos-=normalize(a_Mouse.xy-a_Position)*(0.5+0.5*mouse2point_len);
+                        len=1.0;
+                    }
+                    
+					gl_Position = vec4(pos,0.,1.);
+				}`
+			);
+			gl.compileShader(vtxShader);
+			gl.attachShader(program, vtxShader);
+			gl.shaderSource(
+				fgmShader,
+                `precision mediump float;
+                varying float len;
+                void main(){
+					gl_FragColor = vec4(1.,len,0.,1.);
+				}`
+			);
+			gl.compileShader(fgmShader);
+			gl.attachShader(program, fgmShader);
+            gl.linkProgram(program);
+            const aPositionIdx = gl.getAttribLocation(program, "a_Position");
+			const pointBuf = gl.createBuffer();
+			gl.bindBuffer(gl.ARRAY_BUFFER, pointBuf);
+            gl.bufferData(gl.ARRAY_BUFFER, createEl(1), gl.STATIC_DRAW);
+			gl.enableVertexAttribArray(aPositionIdx);
+            gl.vertexAttribPointer(aPositionIdx, 2, gl.FLOAT, false, 0, 0);
+            
+            // const aMouseIdx = gl.getAttribLocation(program,'a_Mouse');
+            // gl.vertexAttrib2f(aMouseIdx,0,0);
+
+            const uMouseIdx = gl.getUniformLocation(program,'u_Mouse');
+            gl.uniform2f(uMouseIdx,0,0)
+
+
+			gl.useProgram(program);
+			gl.drawArrays(gl.TRIANGLES, 0, total*3);
+            
+			canvas.onmousemove = e => {
+				//把数据归一化（计算成0~1的范围内）
+				let x = e.offsetX / canvas.width;
+				let y = e.offsetY / canvas.height;
+
+                gl.vertexAttrib2f(aMouseIdx,2*x-1,1-2*y);
+
+				gl.clear(gl.COLOR_BUFFER_BIT);
+				gl.drawArrays(gl.TRIANGLES, 0, total*3);
+            };
+            range.onchange = e=>{
+                total = parseInt(range.value);
+                count.innerHTML=total;
+                gl.bufferData(gl.ARRAY_BUFFER, createEl(total), gl.STATIC_DRAW);
+                gl.clear(gl.COLOR_BUFFER_BIT);
+				gl.drawArrays(gl.TRIANGLES, 0, total*3);
+            }
+
+
+
+            function createEl(n){
+                if(n===1){
+                    return new Float32Array([-0.5, -0.5, 0.5,-0.5, 0, 0.5])
+                }
+                let len = (1-n/10500)*0.05;
+                let points = [];
+                for(let i=0;i<n;i++){
+                    let rp = [Math.random()*2-1,1-Math.random()*2];
+                    points.push(
+                        rp[0],rp[1],
+                        rp[0]+len,rp[1],
+                        rp[0],rp[1]+len
+                    )
+                }
+                return new Float32Array(points)
+            }
+            
+
+		</script>
+	</body>
+</html>

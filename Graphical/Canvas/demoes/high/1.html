@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+    <head>
+	    <title></title>
+		<meta charset="utf-8"/>
+		<style>
+		    *{margin:0;padding:0;overflow: hidden;}
+		</style>
+		<script>
+		    window.onload=function(){
+			    var a=new CanvBSR();
+				a.canvDrawAll();
+				a.canvRun();
+			}
+			function CanvBSR(){
+			    this.canv=document.getElementById('canvas');
+				this.cxt=this.canv.getContext('2d');
+				
+				this.beginX=220;
+				this.beginY=220;
+				this.tagX=400;
+				this.tagY=400;
+				this.ctrlX=100;
+				this.ctrlY=300;
+				
+				this.BsrLineWidth=5;
+				this.BsrColor='red';
+				this.pntColor='blue'
+			}
+			CanvBSR.prototype={
+			    canvDrawAll:function(){
+					this.cxt.beginPath();
+					this.cxt.lineWidth=1;
+					this.cxt.strokeStyle='#aaa';
+					this.cxt.moveTo(this.beginX,this.beginY);
+					this.cxt.lineTo(this.ctrlX,this.ctrlY);
+					this.cxt.lineTo(this.tagX,this.tagY);
+					this.cxt.stroke();
+					this.cxt.closePath();
+					this.canvDrawBSR();
+					this.canvDrawPointer(this.beginX,this.beginY);
+					this.canvDrawPointer(this.tagX,this.tagY);
+					this.canvDrawPointer(this.ctrlX,this.ctrlY);
+				},
+				canvDrawBSR:function(){
+				    this.cxt.beginPath();
+					this.cxt.lineWidth=this.BsrLineWidth;
+					this.cxt.strokeStyle=this.BsrColor;
+					this.cxt.moveTo(this.beginX,this.beginY);
+					this.cxt.quadraticCurveTo(this.ctrlX,this.ctrlY,this.tagX,this.tagY);
+					this.cxt.stroke();
+					this.cxt.closePath();
+				},
+				canvDrawPointer:function(X,Y){
+				    this.cxt.beginPath();
+					this.cxt.fillStyle=this.pntColor;
+					this.cxt.arc(X,Y,5,0*Math.PI/180,360*Math.PI/180,false);
+					this.cxt.fill();
+					this.cxt.closePath();
+				},
+				canvRun:function(){
+				    var _this=this;
+					this.canv.onmousedown=function(ev){
+					    var ev=ev||event;
+						var be=(ev.clientX-_this.beginX)*(ev.clientX-_this.beginX)+(ev.clientY-_this.beginY)*(ev.clientY-_this.beginY);
+						var ta=(ev.clientX-_this.tagX)*(ev.clientX-_this.tagX)+(ev.clientY-_this.tagY)*(ev.clientY-_this.tagY);
+						var ct=(ev.clientX-_this.ctrlX)*(ev.clientX-_this.ctrlX)+(ev.clientY-_this.ctrlY)*(ev.clientY-_this.ctrlY);
+						if(be<=25){
+						    _this.canv.onmousemove=function(ev){
+							    var ev=ev||event;
+								_this.beginX=ev.clientX;
+								_this.beginY=ev.clientY;
+								_this.cxt.clearRect(0,0,500,500);
+								_this.canvDrawAll();
+							}
+						}
+						else if(ta<=25){
+						    _this.canv.onmousemove=function(ev){
+							    var ev=ev||event;
+								_this.tagX=ev.clientX;
+								_this.tagY=ev.clientY;
+								_this.cxt.clearRect(0,0,500,500);
+								_this.canvDrawAll();
+						    }
+						}
+						else if(ct<=25){
+						    _this.canv.onmousemove=function(ev){
+							    var ev=ev||event;
+								_this.ctrlX=ev.clientX;
+								_this.ctrlY=ev.clientY;
+								_this.cxt.clearRect(0,0,500,500);
+								_this.canvDrawAll();
+						    }
+						}
+						_this.canv.onmouseup=function(){
+						    _this.canv.onmousemove=_this.canv.onmouseup=null;
+						}
+						
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+	    <canvas id="canvas" width=500px height=500px>你的浏览器还不支持HTML5,快去升级吧！！</canvas>
+	</body>
+</html>

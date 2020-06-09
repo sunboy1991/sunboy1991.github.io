@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>图像处理技术-空间像素篇 | FrontEnd Docs</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/logo.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="前端绿书">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="preload" href="/assets/css/0.styles.c1486ec1.css" as="style"><link rel="preload" href="/assets/js/app.67496c89.js" as="script"><link rel="preload" href="/assets/js/3.cf7a9944.js" as="script"><link rel="preload" href="/assets/js/5.48085d33.js" as="script"><link rel="preload" href="/assets/js/12.94a768b4.js" as="script"><link rel="prefetch" href="/assets/js/10.72dd51a9.js"><link rel="prefetch" href="/assets/js/100.98c6437a.js"><link rel="prefetch" href="/assets/js/101.eb45a818.js"><link rel="prefetch" href="/assets/js/102.c8059a23.js"><link rel="prefetch" href="/assets/js/103.719a7352.js"><link rel="prefetch" href="/assets/js/104.bb5c0626.js"><link rel="prefetch" href="/assets/js/105.d56b10e7.js"><link rel="prefetch" href="/assets/js/106.ee13bfe6.js"><link rel="prefetch" href="/assets/js/107.beb2f5d5.js"><link rel="prefetch" href="/assets/js/108.ec980ce3.js"><link rel="prefetch" href="/assets/js/109.7fb0fb3c.js"><link rel="prefetch" href="/assets/js/11.a9a74280.js"><link rel="prefetch" href="/assets/js/110.7fa66a00.js"><link rel="prefetch" href="/assets/js/111.9d3ab7f2.js"><link rel="prefetch" href="/assets/js/112.5c7b26a4.js"><link rel="prefetch" href="/assets/js/113.b222d8dd.js"><link rel="prefetch" href="/assets/js/114.94a7e36e.js"><link rel="prefetch" href="/assets/js/115.90a5ee34.js"><link rel="prefetch" href="/assets/js/116.45f014b1.js"><link rel="prefetch" href="/assets/js/117.aaeadc9a.js"><link rel="prefetch" href="/assets/js/118.123a5bb8.js"><link rel="prefetch" href="/assets/js/119.bf94e0aa.js"><link rel="prefetch" href="/assets/js/120.918a8a4c.js"><link rel="prefetch" href="/assets/js/121.6791fa17.js"><link rel="prefetch" href="/assets/js/122.5fae21f2.js"><link rel="prefetch" href="/assets/js/123.0ff6ef7f.js"><link rel="prefetch" href="/assets/js/124.4f076072.js"><link rel="prefetch" href="/assets/js/125.3b628c2c.js"><link rel="prefetch" href="/assets/js/126.47f80e59.js"><link rel="prefetch" href="/assets/js/127.d6e2375f.js"><link rel="prefetch" href="/assets/js/128.b1c16eb7.js"><link rel="prefetch" href="/assets/js/129.ddcee480.js"><link rel="prefetch" href="/assets/js/13.3f4b963d.js"><link rel="prefetch" href="/assets/js/130.259325dd.js"><link rel="prefetch" href="/assets/js/131.420db52f.js"><link rel="prefetch" href="/assets/js/132.08de9589.js"><link rel="prefetch" href="/assets/js/133.369f5900.js"><link rel="prefetch" href="/assets/js/134.60597180.js"><link rel="prefetch" href="/assets/js/135.5d6e8d4f.js"><link rel="prefetch" href="/assets/js/136.fc4795d9.js"><link rel="prefetch" href="/assets/js/137.fe293f5c.js"><link rel="prefetch" href="/assets/js/138.bdf26548.js"><link rel="prefetch" href="/assets/js/139.de2ce565.js"><link rel="prefetch" href="/assets/js/14.c419df94.js"><link rel="prefetch" href="/assets/js/140.ac48cdb4.js"><link rel="prefetch" href="/assets/js/141.b53c7064.js"><link rel="prefetch" href="/assets/js/142.190e982d.js"><link rel="prefetch" href="/assets/js/143.9330f378.js"><link rel="prefetch" href="/assets/js/144.75d77e3b.js"><link rel="prefetch" href="/assets/js/145.859b1115.js"><link rel="prefetch" href="/assets/js/146.fd421688.js"><link rel="prefetch" href="/assets/js/147.71cb52f1.js"><link rel="prefetch" href="/assets/js/148.8184946a.js"><link rel="prefetch" href="/assets/js/149.08f45cb6.js"><link rel="prefetch" href="/assets/js/15.6bde15d0.js"><link rel="prefetch" href="/assets/js/150.2dbd76ae.js"><link rel="prefetch" href="/assets/js/151.63d79f79.js"><link rel="prefetch" href="/assets/js/152.165e84ed.js"><link rel="prefetch" href="/assets/js/153.3a77aa03.js"><link rel="prefetch" href="/assets/js/154.03cccc6b.js"><link rel="prefetch" href="/assets/js/155.954bec1c.js"><link rel="prefetch" href="/assets/js/156.2d0b239b.js"><link rel="prefetch" href="/assets/js/157.b84b94c3.js"><link rel="prefetch" href="/assets/js/158.965c0bf4.js"><link rel="prefetch" href="/assets/js/159.0df6270d.js"><link rel="prefetch" href="/assets/js/16.f64b5708.js"><link rel="prefetch" href="/assets/js/160.1f01d1f1.js"><link rel="prefetch" href="/assets/js/161.bb5365ac.js"><link rel="prefetch" href="/assets/js/162.c11c02c5.js"><link rel="prefetch" href="/assets/js/163.0e36a992.js"><link rel="prefetch" href="/assets/js/164.d0be1d0a.js"><link rel="prefetch" href="/assets/js/165.a996c12e.js"><link rel="prefetch" href="/assets/js/166.04d8b4cd.js"><link rel="prefetch" href="/assets/js/167.5a52dd8c.js"><link rel="prefetch" href="/assets/js/168.6243335c.js"><link rel="prefetch" href="/assets/js/169.f7db8c31.js"><link rel="prefetch" href="/assets/js/17.ec50c2e8.js"><link rel="prefetch" href="/assets/js/18.7e5c0d96.js"><link rel="prefetch" href="/assets/js/19.22328a07.js"><link rel="prefetch" href="/assets/js/20.d1f009d8.js"><link rel="prefetch" href="/assets/js/21.31b999e5.js"><link rel="prefetch" href="/assets/js/22.94a80e87.js"><link rel="prefetch" href="/assets/js/23.c6a77eaa.js"><link rel="prefetch" href="/assets/js/24.6b022e3d.js"><link rel="prefetch" href="/assets/js/25.3ea7d7a5.js"><link rel="prefetch" href="/assets/js/26.4fc702b1.js"><link rel="prefetch" href="/assets/js/27.ae18b4c5.js"><link rel="prefetch" href="/assets/js/28.509e8e1c.js"><link rel="prefetch" href="/assets/js/29.2f2dbcec.js"><link rel="prefetch" href="/assets/js/30.285d2cdc.js"><link rel="prefetch" href="/assets/js/31.78ed841d.js"><link rel="prefetch" href="/assets/js/32.668dd221.js"><link rel="prefetch" href="/assets/js/33.e994e75a.js"><link rel="prefetch" href="/assets/js/34.f45db2b5.js"><link rel="prefetch" href="/assets/js/35.90131936.js"><link rel="prefetch" href="/assets/js/36.e484cdd8.js"><link rel="prefetch" href="/assets/js/37.0dc73f95.js"><link rel="prefetch" href="/assets/js/38.94c002c9.js"><link rel="prefetch" href="/assets/js/39.25b893af.js"><link rel="prefetch" href="/assets/js/4.2f1119d0.js"><link rel="prefetch" href="/assets/js/40.b52df712.js"><link rel="prefetch" href="/assets/js/41.86f1e893.js"><link rel="prefetch" href="/assets/js/42.aabc3fb9.js"><link rel="prefetch" href="/assets/js/43.929d84fe.js"><link rel="prefetch" href="/assets/js/44.35fdd5c1.js"><link rel="prefetch" href="/assets/js/45.ede220bf.js"><link rel="prefetch" href="/assets/js/46.09e63517.js"><link rel="prefetch" href="/assets/js/47.8eec2110.js"><link rel="prefetch" href="/assets/js/48.19ddf9c0.js"><link rel="prefetch" href="/assets/js/49.c00546d1.js"><link rel="prefetch" href="/assets/js/50.9b8689db.js"><link rel="prefetch" href="/assets/js/51.5dd466df.js"><link rel="prefetch" href="/assets/js/52.9cb4bcd5.js"><link rel="prefetch" href="/assets/js/53.9bd1ce7a.js"><link rel="prefetch" href="/assets/js/54.003b9d7f.js"><link rel="prefetch" href="/assets/js/55.2d7fc27b.js"><link rel="prefetch" href="/assets/js/56.56f6b85a.js"><link rel="prefetch" href="/assets/js/57.74d54da1.js"><link rel="prefetch" href="/assets/js/58.8815e01d.js"><link rel="prefetch" href="/assets/js/59.c7420375.js"><link rel="prefetch" href="/assets/js/6.d8f8d980.js"><link rel="prefetch" href="/assets/js/60.ccd9357e.js"><link rel="prefetch" href="/assets/js/61.6a22933e.js"><link rel="prefetch" href="/assets/js/62.1d72f48f.js"><link rel="prefetch" href="/assets/js/63.59f63f00.js"><link rel="prefetch" href="/assets/js/64.cb59af98.js"><link rel="prefetch" href="/assets/js/65.64418aac.js"><link rel="prefetch" href="/assets/js/66.2cb00529.js"><link rel="prefetch" href="/assets/js/67.08980ba0.js"><link rel="prefetch" href="/assets/js/68.cdd0269c.js"><link rel="prefetch" href="/assets/js/69.a861ad80.js"><link rel="prefetch" href="/assets/js/7.f8e9d384.js"><link rel="prefetch" href="/assets/js/70.09840999.js"><link rel="prefetch" href="/assets/js/71.44a5a193.js"><link rel="prefetch" href="/assets/js/72.2d132b64.js"><link rel="prefetch" href="/assets/js/73.7ef286d2.js"><link rel="prefetch" href="/assets/js/74.07bf8129.js"><link rel="prefetch" href="/assets/js/75.90fe3ca7.js"><link rel="prefetch" href="/assets/js/76.56c2c99a.js"><link rel="prefetch" href="/assets/js/77.af57fbbf.js"><link rel="prefetch" href="/assets/js/78.7c8a06ff.js"><link rel="prefetch" href="/assets/js/79.fe7ea232.js"><link rel="prefetch" href="/assets/js/8.0852472a.js"><link rel="prefetch" href="/assets/js/80.34c69a2e.js"><link rel="prefetch" href="/assets/js/81.0a6b3334.js"><link rel="prefetch" href="/assets/js/82.d2ea377d.js"><link rel="prefetch" href="/assets/js/83.a2385caa.js"><link rel="prefetch" href="/assets/js/84.31ceb4a2.js"><link rel="prefetch" href="/assets/js/85.9a3c6911.js"><link rel="prefetch" href="/assets/js/86.a2dd891d.js"><link rel="prefetch" href="/assets/js/87.f66f4793.js"><link rel="prefetch" href="/assets/js/88.597c0c7b.js"><link rel="prefetch" href="/assets/js/89.49025ed1.js"><link rel="prefetch" href="/assets/js/9.fd9e5888.js"><link rel="prefetch" href="/assets/js/90.c41cf32e.js"><link rel="prefetch" href="/assets/js/91.0ed38cd2.js"><link rel="prefetch" href="/assets/js/92.b45d23a4.js"><link rel="prefetch" href="/assets/js/93.5395792e.js"><link rel="prefetch" href="/assets/js/94.70f92ca6.js"><link rel="prefetch" href="/assets/js/95.046c7977.js"><link rel="prefetch" href="/assets/js/96.10714986.js"><link rel="prefetch" href="/assets/js/97.d59afd13.js"><link rel="prefetch" href="/assets/js/98.037e0ea9.js"><link rel="prefetch" href="/assets/js/99.cbd43b24.js"><link rel="prefetch" href="/assets/js/vendors~notification.2df74b03.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c1486ec1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">FrontEnd Docs</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Develop/" class="nav-link">
+  工程开发
+</a></div><div class="nav-item"><a href="/Client/" class="nav-link">
+  端技术
+</a></div><div class="nav-item"><a href="/Engineering/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/Graphical/" class="nav-link router-link-active">
+  图形技术
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多专题" class="dropdown-title"><span class="title">更多专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          中台
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/SSR/start.html" class="nav-link">
+  SSR
+</a></li><li class="dropdown-subitem"><a href="/Node/start.html" class="nav-link">
+  Node
+</a></li><li class="dropdown-subitem"><a href="/Middleware/start.html" class="nav-link">
+  中间件
+</a></li><li class="dropdown-subitem"><a href="/MicroFrontend/start.html" class="nav-link">
+  微前端
+</a></li><li class="dropdown-subitem"><a href="/Serverless/start.html" class="nav-link">
+  Serverless
+</a></li></ul></li><li class="dropdown-item"><h4>
+          媒体技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Audio/start.html" class="nav-link">
+  音频
+</a></li><li class="dropdown-subitem"><a href="/Video/start.html" class="nav-link">
+  视频
+</a></li></ul></li><li class="dropdown-item"><h4>
+          跨端技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Flutter/start.html" class="nav-link">
+  Flutter
+</a></li><li class="dropdown-subitem"><a href="/PWA/start.html" class="nav-link">
+  PWA
+</a></li><li class="dropdown-subitem"><a href="/React-Native/start.html" class="nav-link">
+  React-Native
+</a></li></ul></li><li class="dropdown-item"><h4>
+          编程思想
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/FrameworkDesign/start.html" class="nav-link">
+  框架设计
+</a></li><li class="dropdown-subitem"><a href="/DesignPattern/start.html" class="nav-link">
+  设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          底层原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/V8/start.html" class="nav-link">
+  V8
+</a></li><li class="dropdown-subitem"><a href="/Webkit/start.html" class="nav-link">
+  webkit
+</a></li><li class="dropdown-subitem"><a href="/VirtualDOM/start.html" class="nav-link">
+  virtual DOM
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Develop/" class="nav-link">
+  工程开发
+</a></div><div class="nav-item"><a href="/Client/" class="nav-link">
+  端技术
+</a></div><div class="nav-item"><a href="/Engineering/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/Graphical/" class="nav-link router-link-active">
+  图形技术
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多专题" class="dropdown-title"><span class="title">更多专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          中台
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/SSR/start.html" class="nav-link">
+  SSR
+</a></li><li class="dropdown-subitem"><a href="/Node/start.html" class="nav-link">
+  Node
+</a></li><li class="dropdown-subitem"><a href="/Middleware/start.html" class="nav-link">
+  中间件
+</a></li><li class="dropdown-subitem"><a href="/MicroFrontend/start.html" class="nav-link">
+  微前端
+</a></li><li class="dropdown-subitem"><a href="/Serverless/start.html" class="nav-link">
+  Serverless
+</a></li></ul></li><li class="dropdown-item"><h4>
+          媒体技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Audio/start.html" class="nav-link">
+  音频
+</a></li><li class="dropdown-subitem"><a href="/Video/start.html" class="nav-link">
+  视频
+</a></li></ul></li><li class="dropdown-item"><h4>
+          跨端技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Flutter/start.html" class="nav-link">
+  Flutter
+</a></li><li class="dropdown-subitem"><a href="/PWA/start.html" class="nav-link">
+  PWA
+</a></li><li class="dropdown-subitem"><a href="/React-Native/start.html" class="nav-link">
+  React-Native
+</a></li></ul></li><li class="dropdown-item"><h4>
+          编程思想
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/FrameworkDesign/start.html" class="nav-link">
+  框架设计
+</a></li><li class="dropdown-subitem"><a href="/DesignPattern/start.html" class="nav-link">
+  设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          底层原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/V8/start.html" class="nav-link">
+  V8
+</a></li><li class="dropdown-subitem"><a href="/Webkit/start.html" class="nav-link">
+  webkit
+</a></li><li class="dropdown-subitem"><a href="/VirtualDOM/start.html" class="nav-link">
+  virtual DOM
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Canvas</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>SVG</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>WebGL</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Graphical/WebGL/standard.html" class="sidebar-link">规范</a></li><li><a href="/Graphical/WebGL/best-practices.html" class="sidebar-link">最佳实践</a></li><li><a href="/Graphical/WebGL/share/flexbox指南.html" class="sidebar-link">flexbox 指南</a></li><li><a href="/Graphical/WebGL/share/GLSL语言.html" class="sidebar-link">GLSL语言</a></li><li><a href="/Graphical/WebGL/share/GPGPU（通用计算）.html" class="sidebar-link">GPGPU（通用计算）</a></li><li><a href="/Graphical/WebGL/share/WebGL学习资源.html" class="sidebar-link">WebGL学习资源</a></li><li><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html" class="active sidebar-link">图像处理技术-空间像素篇</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#处理方式" class="sidebar-link">处理方式</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#空间域" class="sidebar-link">空间域</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#基本原理" class="sidebar-link">基本原理</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#基本处理类型介绍" class="sidebar-link">基本处理类型介绍</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#原原本本的输出" class="sidebar-link">原原本本的输出</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#图像锐化" class="sidebar-link">图像锐化</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#边缘检测" class="sidebar-link">边缘检测</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#浮雕" class="sidebar-link">浮雕</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#运动模糊-motion-blur" class="sidebar-link">运动模糊 Motion Blur</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#均值模糊-box-filter-averaging" class="sidebar-link">均值模糊 Box Filter (Averaging)</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#高斯模糊" class="sidebar-link">高斯模糊</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#webgl-实现" class="sidebar-link">WebGL 实现</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#webgl-实现-无效果" class="sidebar-link">WebGL 实现 - 无效果</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#webgl-实现-锐化" class="sidebar-link">WebGL 实现 - 锐化</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#webgl-实现-边缘检测" class="sidebar-link">WebGL 实现 - 边缘检测</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#webgl-实现-浮雕" class="sidebar-link">WebGL 实现 - 浮雕</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#webgl-实现-运动模糊" class="sidebar-link">WebGL 实现 - 运动模糊</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#webgl-实现-均值模糊" class="sidebar-link">WebGL 实现 - 均值模糊</a></li><li class="sidebar-sub-header"><a href="/Graphical/WebGL/share/图像处理技术-空间像素篇.html#简要结论" class="sidebar-link">简要结论</a></li></ul></li><li><a href="/Graphical/WebGL/share/简单入门.html" class="sidebar-link">简单入门</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>可视化</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="图像处理技术-空间像素篇"><a href="#图像处理技术-空间像素篇" class="header-anchor">#</a> 图像处理技术-空间像素篇</h1> <p>图像处理技术，归根到底就是对图像的每个像素进行离散化量化计算操作，我们都知道位图（矢量图除外）的每个像素点都有 4 个颜色值来决定，即 RGBA 四个维度值。</p> <h2 id="处理方式"><a href="#处理方式" class="header-anchor">#</a> 处理方式</h2> <p>图像处理的方式，主要分为 空间域 和 频域（光线频率的操作），一般的图像处理我们主要研究空间域上就行了</p> <h2 id="空间域"><a href="#空间域" class="header-anchor">#</a> 空间域</h2> <p>主要是逐像素操作 面向领域的操作，卷积计算操作和结合多幅图像的操作（即多张纹理采样计算）</p> <h2 id="基本原理"><a href="#基本原理" class="header-anchor">#</a> 基本原理</h2> <p><img src="/assets/img/20151012211045222.44ab7368.jpg" alt=""></p> <p>上图是图像处理最基本的方法，它可以允许我们对图像进行处理，产生很多不同的效果。做法很简单。首先，我们有一个二维的像素处理矩阵（有个高大上的名字叫卷积核）和一个要处理的二维图像。然后，对于图像的每一个像素点，计算它的邻域像素和滤波器矩阵的对应元素的乘积，然后加起来，作为该像素位置的值。这样就完成了像素处理过程</p> <h2 id="基本处理类型介绍"><a href="#基本处理类型介绍" class="header-anchor">#</a> 基本处理类型介绍</h2> <h2 id="原原本本的输出"><a href="#原原本本的输出" class="header-anchor">#</a> 原原本本的输出</h2> <p>☻ 必要条件：中心点的值是 1。邻域点的权值都是 0</p> <p><img src="/assets/img/20151012211115746.a2c2956e.jpg" alt=""></p> <h2 id="图像锐化"><a href="#图像锐化" class="header-anchor">#</a> 图像锐化</h2> <p>图像的锐化和边缘检测很像，首先找到边缘，然后把边缘加到原来的图像上面，这样就强化了图像的边缘，使图像看起来更加锐利了。这两者操作统一起来就是锐化滤波器了，也就是在边缘检测滤波器的基础上，再在中心的位置加 1，这样滤波后的图像就会和原始的图像具有同样的亮度了，但是会更加锐利。</p> <p><img src="/assets/img/20151012211129394.62b66e62.jpg" alt=""></p> <p>我们把核加大，就可以得到更加精细的锐化效果</p> <p><img src="/assets/img/20151012211142061.d0ff970c.jpg" alt=""></p> <p>另外，下面的滤波器会更强调边缘：</p> <p><img src="/assets/img/20151012211158076.6fb81128.jpg" alt=""></p> <p>主要是强调图像的细节。最简单的 3x3 的锐化滤波器如下：</p> <p><img src="/assets/img/20151012211224968.bb08fef2.jpg" alt=""></p> <p>大家应该也看出来了，锐化滤波器实际上就是计算当前点和周围点的差别，然后将这个差别加到原来的位置上。</p> <h2 id="边缘检测"><a href="#边缘检测" class="header-anchor">#</a> 边缘检测</h2> <p>我们要找水平的边缘：需要注意的是，这里矩阵的元素和是 0，所以滤波后的图像会很暗，只有边缘的地方是有亮度的。</p> <p><img src="/assets/img/20151012211241675.1890847d.jpg" alt=""></p> <p>为什么这个滤波器可以寻找到水平边缘呢？因为用这个滤波器卷积相当于求导的离散版本：你将当前的像素值减去前一个像素值，这样你就可以得到这个函数在这两个位置的差别或者斜率。下面的滤波器可以找到垂直方向的边缘，这里像素上和下的像素值都使用：</p> <p><img src="/assets/img/20151012211305528.a717c66e.jpg" alt=""></p> <p>再下面这个滤波器可以找到 45 度的边缘：取-2 不为了什么，只是为了让矩阵的元素和为 0 而已。</p> <p><img src="/assets/img/20151012211400060.c00af7d5.jpg" alt=""></p> <p>那下面这个滤波器就可以检测所有方向的边缘:</p> <p><img src="/assets/img/20151012211421577.7a0eae01.jpg" alt=""></p> <p>为了检测边缘，我们需要在图像对应的方向计算梯度。用下面的卷积核来卷积图像，就可以了。但在实际中，这种简单的方法会把噪声也放大了。另外，需要注意的是，矩阵所有的值加起来要是 0.</p> <p><img src="/assets/img/20151012211444858.4145a18a.jpg" alt=""></p> <h2 id="浮雕"><a href="#浮雕" class="header-anchor">#</a> 浮雕</h2> <p>浮雕滤波器可以给图像一种 3D 阴影的效果。只要将中心一边的像素减去另一边的像素就可以了。这时候，像素值有可能是负数，我们将负数当成阴影，将正数当成光，然后我们对结果图像加上 128 的偏移。这时候，图像大部分就变成灰色了。</p> <p>下面是 45 度的浮雕滤波器</p> <p><img src="/assets/img/20151012211506920.d22338f8.jpg" alt=""></p> <p>我们只要加大滤波器，就可以得到更加夸张的效果了</p> <p><img src="/assets/img/20151012211519399.e7df4f91.jpg" alt=""></p> <h2 id="运动模糊-motion-blur"><a href="#运动模糊-motion-blur" class="header-anchor">#</a> 运动模糊 Motion Blur</h2> <p>运动模糊可以通过只在一个方向模糊达到，例如下面 9x9 的运动模糊滤波器。注意，求和结果要除以 9。</p> <p><img src="/assets/img/20151012211834920.5b2e6a90.jpg" alt=""></p> <p>这个效果就好像，摄像机是从左上角移动的右下角。</p> <p>看了一些好玩的滤波器后我们可以进入主题了，首先来看均值模糊：</p> <h2 id="均值模糊-box-filter-averaging"><a href="#均值模糊-box-filter-averaging" class="header-anchor">#</a> 均值模糊 Box Filter (Averaging)</h2> <p>我们可以将当前像素和它的四邻域的像素一起取平均，然后再除以 5，或者直接在滤波器的 5 个地方取 0.2 的值即可，如下图：</p> <p><img src="/assets/img/20151012211628483.fcbfedc7.jpg" alt=""></p> <p>可以看到，这个模糊还是比较温柔的，我们可以把滤波器变大，这样就会变得粗暴了：注意要将和再除以 13.</p> <p><img src="/assets/img/20151012211641732.ce61e25f.jpg" alt=""></p> <p>所以，如果你想要更模糊的效果，加大滤波器的大小即可。或者对图像应用多次模糊也可以。</p> <p><img src="/assets/img/20151012211725686.7e6694cc.jpg" alt=""></p> <p><img src="/assets/img/20151012211742056.d05603d9.jpg" alt=""></p> <h2 id="高斯模糊"><a href="#高斯模糊" class="header-anchor">#</a> 高斯模糊</h2> <p>其实模糊滤波器就是对周围像素进行加权平均处理，均值模糊很简单，周围像素的权值都相同，所以不是很平滑。高斯模糊就有这个优点，所以被广泛用在图像降噪上。特别是在边缘检测之前，都会用来移除细节。那么下面我们就看看高斯模糊的权值是如何分配的。</p> <h2 id="webgl-实现"><a href="#webgl-实现" class="header-anchor">#</a> WebGL 实现</h2> <p>核算法可以推广到各种离散集合中，位图只是一种常见的像素集合，对于核算法，不同图形接口的实现方式大同小异，主要的区别是每个图形接口的性能及自带的一些计算特性，我们除了 webGL 之外也可以选择 Canvas 2D 图形接口来进行像素操作，下面我们以 webgl 图形接口为例来对以上图形算法在片元着色器进行简单的实现。</p> <p>以上纹理作为演示例子 大小为 256 * 256</p> <h3 id="基本片元模板"><a href="#基本片元模板" class="header-anchor">#</a> 基本片元模板</h3> <div class="language-cpp extra-class"><pre class="language-cpp"><code>precision mediump <span class="token keyword">float</span><span class="token punctuation">;</span>
+uniform sampler2D sampler<span class="token punctuation">;</span>
+varying vec2 v_texcoord<span class="token punctuation">;</span>
+uniform <span class="token keyword">float</span> u_width<span class="token punctuation">;</span>
+uniform <span class="token keyword">float</span> u_height<span class="token punctuation">;</span>
+vec4 <span class="token function">kernel</span><span class="token punctuation">(</span>sampler2D sampler<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">//我们的处理函数TODO</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">main</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ gl_FragColor <span class="token operator">=</span> <span class="token function">kernel</span><span class="token punctuation">(</span>sampler<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//获取处理过的像素</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="webgl-实现-无效果"><a href="#webgl-实现-无效果" class="header-anchor">#</a> WebGL 实现 - 无效果</h2> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">// 纹理大小 256 * 256</span>
+precision mediump <span class="token keyword">float</span><span class="token punctuation">;</span>
+varying vec2 v_texcoord<span class="token punctuation">;</span>
+uniform sampler2D u_Sampler<span class="token punctuation">;</span>
+vec3 <span class="token function">kernel</span><span class="token punctuation">(</span>sampler2D sampler<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// 单位像素纹理坐标大小量</span>
+    <span class="token keyword">float</span> unit_x<span class="token operator">=</span><span class="token number">1.</span><span class="token operator">/</span><span class="token number">256.</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> unit_y<span class="token operator">=</span><span class="token number">1.</span><span class="token operator">/</span><span class="token number">256.</span><span class="token punctuation">;</span>
+    <span class="token comment">// 变换矩阵</span>
+    mat3 matrix<span class="token operator">=</span><span class="token function">mat3</span><span class="token punctuation">(</span>
+        <span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span>
+        <span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">1.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span>
+    <span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 正戏部分</span>
+    vec3 res<span class="token operator">=</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> avgLength<span class="token operator">=</span><span class="token number">0.</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">3</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span><span class="token number">3</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">float</span> factorX<span class="token operator">=</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token keyword">float</span> factorY<span class="token operator">=</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                factorX<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                factorY<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&gt;</span><span class="token number">0.</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token comment">//计算有值的卷积和元素个数</span>
+                avgLength<span class="token operator">+=</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">float</span> offsetX<span class="token operator">=</span>factorX<span class="token operator">*</span><span class="token punctuation">(</span>unit_x<span class="token operator">*</span><span class="token keyword">float</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">float</span> offsetY<span class="token operator">=</span>factorY<span class="token operator">*</span><span class="token punctuation">(</span>unit_y<span class="token operator">*</span><span class="token keyword">float</span><span class="token punctuation">(</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+            vec2 samplerCoord<span class="token operator">=</span><span class="token function">vec2</span><span class="token punctuation">(</span>v_texcoord<span class="token punctuation">.</span>x<span class="token operator">+</span>offsetX<span class="token punctuation">,</span>v_texcoord<span class="token punctuation">.</span>y<span class="token operator">+</span>offsetY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            res<span class="token operator">+=</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token function">texture2D</span><span class="token punctuation">(</span>sampler<span class="token punctuation">,</span>samplerCoord<span class="token punctuation">)</span><span class="token punctuation">.</span>rgb<span class="token operator">*</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//平均像素操作 且设定阀值</span>
+    <span class="token keyword">return</span> <span class="token function">clamp</span><span class="token punctuation">(</span>res<span class="token operator">/</span>avgLength<span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">1.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    gl_FragColor<span class="token operator">=</span><span class="token function">vec4</span><span class="token punctuation">(</span><span class="token function">kernel</span><span class="token punctuation">(</span>u_Sampler<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="webgl-实现-锐化"><a href="#webgl-实现-锐化" class="header-anchor">#</a> WebGL 实现 - 锐化</h2> <div class="language-cpp extra-class"><pre class="language-cpp"><code>vec3 <span class="token function">kernel</span><span class="token punctuation">(</span>sampler2D sampler<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// 单位像素纹理坐标大小量</span>
+    <span class="token keyword">float</span> unit_x<span class="token operator">=</span><span class="token number">1.</span><span class="token operator">/</span><span class="token number">256.</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> unit_y<span class="token operator">=</span><span class="token number">1.</span><span class="token operator">/</span><span class="token number">256.</span><span class="token punctuation">;</span>
+    <span class="token comment">// 变换矩阵</span>
+    mat3 matrix<span class="token operator">=</span><span class="token function">mat3</span><span class="token punctuation">(</span>
+        <span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">,</span>
+        <span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">,</span><span class="token number">9.</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">,</span>
+    <span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 正戏部分</span>
+    vec3 res<span class="token operator">=</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> avgLength<span class="token operator">=</span><span class="token number">0.</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">3</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span><span class="token number">3</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">float</span> factorX<span class="token operator">=</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token keyword">float</span> factorY<span class="token operator">=</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                factorX<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                factorY<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&gt;</span><span class="token number">0.</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token comment">//计算有值的卷积和元素个数</span>
+                avgLength<span class="token operator">+=</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">float</span> offsetX<span class="token operator">=</span>factorX<span class="token operator">*</span><span class="token punctuation">(</span>unit_x<span class="token operator">*</span><span class="token keyword">float</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">float</span> offsetY<span class="token operator">=</span>factorY<span class="token operator">*</span><span class="token punctuation">(</span>unit_y<span class="token operator">*</span><span class="token keyword">float</span><span class="token punctuation">(</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+            vec2 samplerCoord<span class="token operator">=</span><span class="token function">vec2</span><span class="token punctuation">(</span>v_texcoord<span class="token punctuation">.</span>x<span class="token operator">+</span>offsetX<span class="token punctuation">,</span>v_texcoord<span class="token punctuation">.</span>y<span class="token operator">+</span>offsetY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            res<span class="token operator">+=</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token function">texture2D</span><span class="token punctuation">(</span>sampler<span class="token punctuation">,</span>samplerCoord<span class="token punctuation">)</span><span class="token punctuation">.</span>rgb<span class="token operator">*</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//平均像素操作 且设定阀值</span>
+    <span class="token keyword">return</span> <span class="token function">clamp</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">1.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="webgl-实现-边缘检测"><a href="#webgl-实现-边缘检测" class="header-anchor">#</a> WebGL 实现 - 边缘检测</h2> <div class="language-cpp extra-class"><pre class="language-cpp"><code>vec3 <span class="token function">kernel</span><span class="token punctuation">(</span>sampler2D sampler<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// 单位像素纹理坐标大小量</span>
+    <span class="token keyword">float</span> unit_x<span class="token operator">=</span><span class="token number">1.</span><span class="token operator">/</span><span class="token number">256.</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> unit_y<span class="token operator">=</span><span class="token number">1.</span><span class="token operator">/</span><span class="token number">256.</span><span class="token punctuation">;</span>
+    <span class="token comment">// 变换矩阵</span>
+    <span class="token keyword">float</span> matrix<span class="token punctuation">[</span><span class="token number">25</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">25</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0.</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    matrix<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">;</span>
+    matrix<span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">;</span>
+    matrix<span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">2.</span><span class="token punctuation">;</span>
+    <span class="token comment">// 正戏部分</span>
+    vec3 res<span class="token operator">=</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> avgLength<span class="token operator">=</span><span class="token number">0.</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">5</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span><span class="token number">5</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">float</span> factorX<span class="token operator">=</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token keyword">float</span> factorY<span class="token operator">=</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                factorX<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                factorY<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>matrix<span class="token punctuation">[</span><span class="token punctuation">(</span>i<span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">+</span>j<span class="token punctuation">]</span><span class="token operator">&gt;</span><span class="token number">0.</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token comment">//计算有值的卷积和元素个数</span>
+                avgLength<span class="token operator">+=</span>matrix<span class="token punctuation">[</span><span class="token punctuation">(</span>i<span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">+</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">float</span> offsetX<span class="token operator">=</span>factorX<span class="token operator">*</span><span class="token punctuation">(</span>unit_x<span class="token operator">*</span><span class="token keyword">float</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">float</span> offsetY<span class="token operator">=</span>factorY<span class="token operator">*</span><span class="token punctuation">(</span>unit_y<span class="token operator">*</span><span class="token keyword">float</span><span class="token punctuation">(</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            vec2 samplerCoord<span class="token operator">=</span><span class="token function">vec2</span><span class="token punctuation">(</span>v_texcoord<span class="token punctuation">.</span>x<span class="token operator">+</span>offsetX<span class="token punctuation">,</span>v_texcoord<span class="token punctuation">.</span>y<span class="token operator">+</span>offsetY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            res<span class="token operator">+=</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token function">texture2D</span><span class="token punctuation">(</span>sampler<span class="token punctuation">,</span>samplerCoord<span class="token punctuation">)</span><span class="token punctuation">.</span>rgb<span class="token operator">*</span>matrix<span class="token punctuation">[</span><span class="token punctuation">(</span>i<span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">+</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//平均像素操作 且设定阀值</span>
+    <span class="token keyword">return</span> <span class="token function">clamp</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">1.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    gl_FragColor<span class="token operator">=</span><span class="token function">vec4</span><span class="token punctuation">(</span><span class="token function">kernel</span><span class="token punctuation">(</span>u_Sampler<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="webgl-实现-浮雕"><a href="#webgl-实现-浮雕" class="header-anchor">#</a> WebGL 实现 - 浮雕</h2> <div class="language-cpp extra-class"><pre class="language-cpp"><code>vec3 <span class="token function">kernel</span><span class="token punctuation">(</span>sampler2D sampler<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+        <span class="token comment">// 单位像素纹理坐标大小量</span>
+        <span class="token keyword">float</span> unit_x<span class="token operator">=</span><span class="token number">1.</span><span class="token operator">/</span><span class="token number">256.</span><span class="token punctuation">;</span>
+        <span class="token keyword">float</span> unit_y<span class="token operator">=</span><span class="token number">1.</span><span class="token operator">/</span><span class="token number">256.</span><span class="token punctuation">;</span>
+        <span class="token comment">// 变换矩阵</span>
+        mat3 matrix<span class="token operator">=</span><span class="token function">mat3</span><span class="token punctuation">(</span>
+                <span class="token number">2.</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span>
+                <span class="token operator">-</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span>
+        <span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 正戏部分</span>
+        vec3 res<span class="token operator">=</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">float</span> avgLength<span class="token operator">=</span><span class="token number">0.</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">3</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+                <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span><span class="token number">3</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                        <span class="token keyword">float</span> factorX<span class="token operator">=</span><span class="token number">1.</span><span class="token punctuation">;</span>
+                        <span class="token keyword">float</span> factorY<span class="token operator">=</span><span class="token number">1.</span><span class="token punctuation">;</span>
+                        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">{</span>
+                                factorX<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                        <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">{</span>
+                                factorY<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                        <span class="token keyword">if</span><span class="token punctuation">(</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&gt;</span><span class="token number">0.</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                                <span class="token comment">//计算有值的卷积和元素个数</span>
+                                avgLength<span class="token operator">+=</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+
+                        <span class="token keyword">float</span> offsetX<span class="token operator">=</span>factorX<span class="token operator">*</span><span class="token punctuation">(</span>unit_x<span class="token operator">*</span><span class="token keyword">float</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token keyword">float</span> offsetY<span class="token operator">=</span>factorY<span class="token operator">*</span><span class="token punctuation">(</span>unit_y<span class="token operator">*</span><span class="token keyword">float</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                        vec2 samplerCoord<span class="token operator">=</span><span class="token function">vec2</span><span class="token punctuation">(</span>v_texcoord<span class="token punctuation">.</span>x<span class="token operator">+</span>offsetX<span class="token punctuation">,</span>v_texcoord<span class="token punctuation">.</span>y<span class="token operator">+</span>offsetY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        res<span class="token operator">+=</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token function">texture2D</span><span class="token punctuation">(</span>sampler<span class="token punctuation">,</span>samplerCoord<span class="token punctuation">)</span><span class="token punctuation">.</span>rgb<span class="token operator">*</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">//平均像素操作 且设定阀值</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="webgl-实现-运动模糊"><a href="#webgl-实现-运动模糊" class="header-anchor">#</a> WebGL 实现 - 运动模糊</h2> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">// 运动模糊</span>
+vec3 <span class="token function">kernel</span><span class="token punctuation">(</span>sampler2D sampler<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// 单位像素纹理坐标大小量</span>
+    <span class="token keyword">float</span> unit_x<span class="token operator">=</span><span class="token number">1.</span><span class="token operator">/</span><span class="token number">256.</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> unit_y<span class="token operator">=</span><span class="token number">1.</span><span class="token operator">/</span><span class="token number">256.</span><span class="token punctuation">;</span>
+    <span class="token comment">// 变换矩阵</span>
+    <span class="token keyword">float</span> matrix<span class="token punctuation">[</span><span class="token number">25</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">25</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0.</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    matrix<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">20.</span><span class="token punctuation">;</span>
+    matrix<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">20.</span><span class="token punctuation">;</span>
+    matrix<span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">20.</span><span class="token punctuation">;</span>
+    matrix<span class="token punctuation">[</span><span class="token number">18</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">20.</span><span class="token punctuation">;</span>
+    matrix<span class="token punctuation">[</span><span class="token number">24</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">20.</span><span class="token punctuation">;</span>
+    <span class="token comment">// 正戏部分</span>
+    vec3 res<span class="token operator">=</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> avgLength<span class="token operator">=</span><span class="token number">0.</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">5</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span><span class="token number">5</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">float</span> factorX<span class="token operator">=</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token keyword">float</span> factorY<span class="token operator">=</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                factorX<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                factorY<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>matrix<span class="token punctuation">[</span><span class="token punctuation">(</span>i<span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">+</span>j<span class="token punctuation">]</span><span class="token operator">&gt;</span><span class="token number">0.</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token comment">//计算有值的卷积和元素个数</span>
+                avgLength<span class="token operator">+=</span>matrix<span class="token punctuation">[</span><span class="token punctuation">(</span>i<span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">+</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">float</span> offsetX<span class="token operator">=</span>factorX<span class="token operator">*</span><span class="token punctuation">(</span>unit_x<span class="token operator">*</span><span class="token keyword">float</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">float</span> offsetY<span class="token operator">=</span>factorY<span class="token operator">*</span><span class="token punctuation">(</span>unit_y<span class="token operator">*</span><span class="token keyword">float</span><span class="token punctuation">(</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            vec2 samplerCoord<span class="token operator">=</span><span class="token function">vec2</span><span class="token punctuation">(</span>v_texcoord<span class="token punctuation">.</span>x<span class="token operator">+</span>offsetX<span class="token punctuation">,</span>v_texcoord<span class="token punctuation">.</span>y<span class="token operator">+</span>offsetY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            res<span class="token operator">+=</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token function">texture2D</span><span class="token punctuation">(</span>sampler<span class="token punctuation">,</span>samplerCoord<span class="token punctuation">)</span><span class="token punctuation">.</span>rgb<span class="token operator">*</span>matrix<span class="token punctuation">[</span><span class="token punctuation">(</span>i<span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">+</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//平均像素操作 且设定阀值</span>
+    <span class="token keyword">return</span> <span class="token function">clamp</span><span class="token punctuation">(</span>res<span class="token operator">/</span>avgLength<span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">1.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="webgl-实现-均值模糊"><a href="#webgl-实现-均值模糊" class="header-anchor">#</a> WebGL 实现 - 均值模糊</h2> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">// 均值模糊</span>
+vec3 <span class="token function">kernel</span><span class="token punctuation">(</span>sampler2D sampler<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// 单位像素纹理坐标大小量</span>
+    <span class="token keyword">float</span> unit_x<span class="token operator">=</span><span class="token number">1.</span><span class="token operator">/</span><span class="token number">256.</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> unit_y<span class="token operator">=</span><span class="token number">1.</span><span class="token operator">/</span><span class="token number">256.</span><span class="token punctuation">;</span>
+    <span class="token comment">// 变换矩阵</span>
+    mat3 matrix<span class="token operator">=</span><span class="token function">mat3</span><span class="token punctuation">(</span>
+        <span class="token number">10.</span><span class="token punctuation">,</span><span class="token number">10.</span><span class="token punctuation">,</span><span class="token number">10.</span><span class="token punctuation">,</span>
+        <span class="token number">10.</span><span class="token punctuation">,</span><span class="token number">10.</span><span class="token punctuation">,</span><span class="token number">10.</span><span class="token punctuation">,</span>
+    <span class="token number">10.</span><span class="token punctuation">,</span><span class="token number">10.</span><span class="token punctuation">,</span><span class="token number">10.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 正戏部分</span>
+    vec3 res<span class="token operator">=</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">,</span><span class="token number">0.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> avgLength<span class="token operator">=</span><span class="token number">0.</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">3</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span><span class="token number">3</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">float</span> factorX<span class="token operator">=</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token keyword">float</span> factorY<span class="token operator">=</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                factorX<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                factorY<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1.</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&gt;</span><span class="token number">0.</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token comment">//计算有值的卷积和元素个数</span>
+                avgLength<span class="token operator">+=</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">float</span> offsetX<span class="token operator">=</span>factorX<span class="token operator">*</span><span class="token punctuation">(</span>unit_x<span class="token operator">*</span><span class="token keyword">float</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">float</span> offsetY<span class="token operator">=</span>factorY<span class="token operator">*</span><span class="token punctuation">(</span>unit_y<span class="token operator">*</span><span class="token keyword">float</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            vec2 samplerCoord<span class="token operator">=</span><span class="token function">vec2</span><span class="token punctuation">(</span>v_texcoord<span class="token punctuation">.</span>x<span class="token operator">+</span>offsetX<span class="token punctuation">,</span>v_texcoord<span class="token punctuation">.</span>y<span class="token operator">+</span>offsetY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            res<span class="token operator">+=</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token function">texture2D</span><span class="token punctuation">(</span>sampler<span class="token punctuation">,</span>samplerCoord<span class="token punctuation">)</span><span class="token punctuation">.</span>rgb<span class="token operator">*</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//平均像素操作 且设定阀值</span>
+    <span class="token keyword">return</span> res<span class="token operator">/</span>avgLength<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="简要结论"><a href="#简要结论" class="header-anchor">#</a> 简要结论</h2> <p>卷积核范围越大，影响范围越广，迭代越加频繁，性能开销越大，效果越明显，决定模糊锐化等取样操作的程度</p> <p>范围越小，影响范围越小，迭代少，性能损耗小，适合一些简单处理就很容易出效果的滤镜</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Graphical/WebGL/share/WebGL学习资源.html" class="prev">
+        WebGL学习资源
+      </a></span> <span class="next"><a href="/Graphical/WebGL/share/简单入门.html">
+        简单入门
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.67496c89.js" defer></script><script src="/assets/js/3.cf7a9944.js" defer></script><script src="/assets/js/5.48085d33.js" defer></script><script src="/assets/js/12.94a768b4.js" defer></script>
+  </body>
+</html>
