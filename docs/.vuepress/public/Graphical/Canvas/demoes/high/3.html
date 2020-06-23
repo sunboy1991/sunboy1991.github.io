@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<button onclick="main()">上传</button>
+		<button onclick="gray()">灰度</button>
+		<button onclick="red()">红色通道</button>
+		<button onclick="green()">绿色通道</button>
+		<button onclick="blue()">蓝色通道</button>
+		<button onclick="border()">查找边缘</button>
+		<button onclick="wave()">扭曲</button>
+		<div></div>
+		<script>
+			var cvs = document.createElement("canvas");
+			var ctx = cvs.getContext("2d");
+			cvs.width = 500;
+			cvs.height = 500;
+			document.body.appendChild(cvs);
+			function upload() {
+				return new Promise(function(res) {
+					var input = document.createElement("input");
+					input.type = "file";
+					input.accept = "image/png,image/jpg";
+					input.onchange = function(e) {
+						res(input.files[0]);
+					};
+					input.click();
+				});
+			}
+
+			function main() {
+				upload()
+					.then(function(file) {
+						return createImageBitmap(file);
+					})
+					.then(function(bitmap) {
+						ctx.clearRect(0, 0, 500, 500);
+						ctx.drawImage(bitmap, 0, 0);
+						bitmap.close();
+					});
+			}
+
+			function gray() {
+				var imageData = ctx.getImageData(0, 0, 500, 500);
+				for (var i = 0; i < imageData.data.length; i += 4) {
+					var r = imageData.data[i];
+					var g = imageData.data[i + 1];
+					var b = imageData.data[i + 2];
+					var gray = (r + g + b) / 3;
+					imageData.data[i] = gray;
+					imageData.data[i + 1] = gray;
+					imageData.data[i + 2] = gray;
+				}
+				ctx.putImageData(imageData, 0, 0);
+			}
+
+			function red() {
+				var imageData = ctx.getImageData(0, 0, 500, 500);
+				for (var i = 0; i < imageData.data.length; i += 4) {
+					imageData.data[i + 1] = 0;
+					imageData.data[i + 2] = 0;
+				}
+				ctx.putImageData(imageData, 0, 0);
+			}
+			function green() {
+				var imageData = ctx.getImageData(0, 0, 500, 500);
+				for (var i = 0; i < imageData.data.length; i += 4) {
+					imageData.data[i] = 0;
+					imageData.data[i + 2] = 0;
+				}
+				ctx.putImageData(imageData, 0, 0);
+			}
+			function blue() {
+				var imageData = ctx.getImageData(0, 0, 500, 500);
+				for (var i = 0; i < imageData.data.length; i += 4) {
+					imageData.data[i] = 0;
+					imageData.data[i + 1] = 0;
+				}
+				ctx.putImageData(imageData, 0, 0);
+			}
+
+			function border() {
+				var imageData = ctx.getImageData(0, 0, 500, 500);
+				var _imageData = ctx.getImageData(0, 0, 500, 500);
+				var around = [
+					-1,
+					-1,
+					0,
+					-1,
+					1,
+					-1,
+					1,
+					0,
+					1,
+					1,
+					0,
+					1,
+					-1,
+					1,
+					-1,
+					0
+				];
+				var getIndex = function(x, y) {
+					if (x < 0) x = 0;
+					if (y < 0) y = 0;
+					if (x > 499) x = 499;
+					if (y > 499) y = 499;
+					return (y * 500 + x) * 4;
+				};
+				var getGray = function(i) {
+					return (
+						(imageData.data[i] +
+							imageData.data[i + 1] +
+							imageData.data[i + 2]) /
+						3
+					);
+				};
+				for (var x = 0; x < 500; x++) {
+					for (var y = 0; y < 500; y++) {
+						var a = [];
+						for (var i = 0; i < 16; i += 2) {
+							a.push(
+								getGray(
+									getIndex(x + around[i], y + around[i + 1])
+								) / 255
+							);
+						}
+						var j = getIndex(x, y);
+						var gx =
+							a[2] + 2 * a[3] + a[4] - (a[0] + 2 * a[7] + a[6]);
+						var gy =
+							a[6] + 2 * a[5] + a[4] - (a[0] + 2 * a[1] + a[2]);
+						var res = 255 - (Math.abs(gx) + Math.abs(gy)) * 255;
+						_imageData.data[j] = res;
+						_imageData.data[j + 1] = res;
+						_imageData.data[j + 2] = res;
+						_imageData.data[j + 3] = 255;
+					}
+				}
+				ctx.putImageData(_imageData, 0, 0);
+			}
+			function wave() {
+				var d = 0;
+				var imageData = ctx.getImageData(0, 0, 500, 500);
+				var t = setInterval(function() {
+					d++;
+					_wave(d / 1000, imageData);
+					if (d === 1000) {
+						clearInterval(t);
+					}
+				}, 16);
+			}
+
+			function _wave(
+				d = 0,
+				imageData = ctx.getImageData(0, 0, 500, 500)
+			) {
+				var _imageData = ctx.getImageData(0, 0, 500, 500);
+				var getIndex = function(x, y) {
+					if (x < 0) x = 0;
+					if (y < 0) y = 0;
+					if (x > 499) x = 499;
+					if (y > 499) y = 499;
+					return (y * 500 + x) * 4;
+				};
+				for (var x = 0; x < 500; x++) {
+					for (var y = 0; y < 500; y++) {
+						var i = getIndex(x, y);
+						var dest = Math.sqrt(
+							(x - 250) * (x - 250) + (y - 250) * (y - 250)
+						);
+						var _x = Math.floor(
+							x + 10* dest * Math.sin(Math.PI * d *2 )
+						);
+						var _y = Math.floor(
+							y + 10* dest * Math.sin(Math.PI * d *2 )
+						);
+						var j = getIndex(_x, _y);
+						_imageData.data[i] = imageData.data[j];
+						_imageData.data[i + 1] = imageData.data[j + 1];
+						_imageData.data[i + 2] = imageData.data[j + 2];
+						_imageData.data[i + 3] = imageData.data[j + 3];
+					}
+				}
+				ctx.putImageData(_imageData, 0, 0);
+			}
+		</script>
+	</body>
+</html>

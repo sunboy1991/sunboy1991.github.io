@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			var cvs = document.createElement("canvas");
+			var ctx = cvs.getContext("2d");
+			var scance = [
+				{
+					name: "face",
+					style: {
+						shape: "circle",
+						x: 100,
+						y: 100,
+						w: 200,
+						h: 200,
+						stroke: "#000",
+						fill: "#fff"
+					},
+					children: [
+						{
+							name: "left-eye",
+							style: {
+								shape: "circle",
+								x: 40 ,
+								y: 50 ,
+								w: 20,
+								h: 20,
+								fill: "#000"
+							}
+						},
+						{
+							name: "right-eye",
+							style: {
+								shape: "circle",
+								x: 140,
+								y: 50,
+								w: 20,
+								h: 20,
+								fill: "#000"
+							}
+						},
+						{
+							name: "mouth",
+							style: {
+								shape: "path",
+								paths: [
+									["m", 50, 150],
+									["q", 100, 200, 150, 150]
+								],
+								stroke: "#000"
+							}
+						}
+					]
+				}
+			];
+			var renderUtils = {
+				stroke: function(options) {
+					if (options.stroke) {
+						ctx.strokeStyle = options.stroke;
+						ctx.stroke();
+					}
+				},
+				fill: function(options) {
+					if (options.fill) {
+						ctx.fillStyle = options.fill;
+						ctx.fill();
+					}
+				}
+			};
+			var shapeRenderer = {
+				circle: function(options) {
+					var ox = options.w / 2;
+					var oy = options.h / 2;
+					var or = Math.min(options.w, options.h) / 2;
+					ctx.translate(options.x, options.y);
+					ctx.beginPath();
+					ctx.arc(ox, oy, or, 0, 2 * Math.PI);
+					renderUtils.fill(options);
+					renderUtils.stroke(options);
+					ctx.closePath();
+					
+				},
+				path: function(options) {
+					var paths = options.paths;
+					ctx.beginPath();
+					paths.forEach(function(item) {
+						switch (item[0].toUpperCase()) {
+							case "M":
+								return ctx.moveTo(item[1], item[2]);
+							case "L":
+								return ctx.lineTo(item[1], item[2]);
+							case "Q":
+								return ctx.quadraticCurveTo(
+									item[1],
+									item[2],
+									item[3],
+									item[4]
+								);
+						}
+					});
+					renderUtils.fill(options);
+					renderUtils.stroke(options);
+					ctx.closePath();
+				}
+			};
+
+			cvs.width = 500;
+			cvs.height = 500;
+			document.body.appendChild(cvs);
+
+			scance.forEach(renderScanceItem);
+
+            window.addEventListener('mousemove',function(e){
+                var cx = (scance[0].style.x+scance[0].style.w)/2;
+                var cy = (scance[0].style.y+scance[0].style.h)/2;
+                var dx = e.offsetX-cx
+                var dy = e.offsetY-cy
+                var ddx = dx===0?0:dx/Math.abs(dx)
+                var ddy = dy===0?0:dy/Math.abs(dy)
+                scance[0].children[0].style.x=40+ddx*10
+                scance[0].children[0].style.y=50+ddy*5
+                scance[0].children[1].style.x=140+ddx*10
+                scance[0].children[1].style.y=50+ddy*5
+                ctx.clearRect(0,0,500,500);
+                scance.forEach(renderScanceItem);
+            })
+
+			function renderScanceItem(scanceItem) {
+				var style = scanceItem.style;
+				var shape = style.shape;
+				ctx.save();
+				if (shapeRenderer[shape]) {
+					shapeRenderer[shape](style);
+				}
+				if (Array.isArray(scanceItem.children)) {
+					scanceItem.children.forEach(renderScanceItem);
+				}
+				ctx.restore();
+			}
+
+           
+		</script>
+	</body>
+</html>
