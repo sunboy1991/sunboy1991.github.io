@@ -19,7 +19,7 @@ footer: MIT Licensed | Copyright © 2020supplyframe
 
 ``` bash
 # 克隆 repo
-git clone +url1
+git clone +url
 
 # 开发预览
 npm run dev
